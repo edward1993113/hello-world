@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!-- 根据设备宽度，调整缩放比例 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 引入BootStrap的CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<!-- 引入JS-->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<title>知识回顾笔记</title>
+	</head>
+	<body>
+		
+
+		<ul class="nav nav-tabs" id="myTab">
+		  <li class="active"><a href="#home" data-toggle="tab">MYSQL</a></li>
+		  <li><a href="#profile" data-toggle="tab">BootStrap</a></li>
+		  <li><a href="#messages" data-toggle="tab">SQL对数据库和表操作</a></li>
+		  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+		</ul>
+		
+		
+
+		<div class="tab-content">
+		  <div class="tab-pane fade in active" id="home">
+		  	<div class="panel-group" id="accordion">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+			          	MYSQL的数据库的概述
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseOne" class="panel-collapse collapse in">
+			      <div class="panel-body">
+			        <ul>
+						<li><p>什么是数据库：<br />就是一个文件系统，这个文件必须通过标准的SQL访问</p></li>
+						<li><p>关系型的数据库存放的都是实体之间的关系.</p></li>
+						<li>常见关系型数据库</li>
+						<table>
+							 <tr>
+							 	<td>MySQL		：</td>
+							 	<td>免费的小型的数据库,现在被Oracle收购.</td>
+							 </tr>
+							 <tr>
+							 	<td>Oracle		：</td>
+							 	<td>Oracle公司收费的大型的数据库.</td>
+							 </tr>
+							 <tr>
+							 	<td>SQLServer	：</td>
+							 	<td>微软公司收费中型的数据库.</td>
+							 </tr>
+							 <tr>
+							 	<td>DB2			：</td>
+							 	<td>IBM公司收费的大型的数据库.</td>
+							 </tr>
+							 <tr>
+							 	<td>SyBase		：</td>
+							 	<td>SyBase公司收费的数据库.已经被淘汰.PowerDesigner数据建模的工具.</td>
+							 </tr>
+							 <tr>
+							 	<td>SQLite		：</td>
+							 	<td>小型的嵌入式的数据库.</td>
+							 </tr>
+						</table>
+						<p></p>
+						  <li>***** Java程序中经常使用的数据库:</li>
+						  <font>MySQL</font><br />
+				 		  <font>Oracle</font>
+					</ul>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			          	SQL的概述
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseTwo" class="panel-collapse collapse">
+			      <div class="panel-body">
+			        <ul>
+						<li><p>SQL:结构化的查询语言.</p></li>
+						<li>分类:</li>
+						<table>
+							<tr>
+								<td>DDL:数据定义语言</td>
+								<td>create,alter,drop，truncate...</td>
+							</tr>
+							<tr>
+								<td>DML:数据操纵语言</td>
+								<td>update,insert,delete</td>
+							</tr>
+							<tr>
+								<td>DCL:数据控制语言</td>
+								<td>grant,if..</td>
+							</tr>
+							<tr>
+								<td>DQL:数据查询语言</td>
+								<td>select</td>
+							</tr>
+						</table>
+						<p></p>
+						<li>特点:</li>
+						<font>非过程性语言: 一条语句就会有一个运行的结果</font>
+					</ul>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+			          	SQL对数据库和表操作
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseThree" class="panel-collapse collapse">
+			      <div class="panel-body">
+			        <ul>
+						<li>对数据库进行CRUD的操作</li>
+						<table>
+							<tr>
+								<td>创建数据库:</td>
+								<td>create database 数据库名称 [character set 字符集 collate 字符集校对];</td>
+							</tr>
+							<tr>
+								<td rowspan="3">查看数据库:</td>
+								<td>查看数据库服务器中所有的数据库:show databases;</td>
+							</tr>
+							<tr>
+								<td>查看某个数据库的定义信息.show create database 数据库名;</td>
+							</tr>
+							<tr>
+								<td>查看某个数据库的定义信息.show create database 数据库名;</td>
+							</tr>
+							<tr>
+								<td>删除数据库:</td>
+								<td>删除数据库:drop database 数据库名;</td>
+							</tr>
+							<tr>
+								<td>修改数据库:</td>
+								<td>修改数据库修改的是的数据库的字符集和校对规则.alter database 数据库名 character set 新字符集 collate 校对规则;</td>
+							</tr>
+							<tr>
+								<td>切换数据库:</td>
+								<td>use 数据库名称;</td>
+							</tr>
+						</table>
+					</ul>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="tab-pane fade" id="profile">
+		  	<ul>
+			<li><p>SQL:结构化的查询语言.</p></li>
+			<li>分类:</li>
+			<table>
+				<tr>
+					<td>DDL:数据定义语言</td>
+					<td>create,alter,drop，truncate...</td>
+				</tr>
+				<tr>
+					<td>DML:数据操纵语言</td>
+					<td>update,insert,delete</td>
+				</tr>
+				<tr>
+					<td>DCL:数据控制语言</td>
+					<td>grant,if..</td>
+				</tr>
+				<tr>
+					<td>DQL:数据查询语言</td>
+					<td>select</td>
+				</tr>
+			</table>
+			<li><p>特点:</p></li>
+			<font>非过程性语言: 一条语句就会有一个运行的结果</font>
+		</ul>
+		  </div>
+		  <div class="tab-pane fade" id="messages">
+		  	<ul>
+			<li>对数据库进行CRUD的操作</li>
+			<table>
+				<tr>
+					<td>创建数据库:</td>
+					<td>create database 数据库名称 [character set 字符集 collate 字符集校对];</td>
+				</tr>
+				<tr>
+					<td rowspan="3">查看数据库:</td>
+					<td>查看数据库服务器中所有的数据库:show databases;</td>
+				</tr>
+				<tr>
+					<td>查看某个数据库的定义信息.show create database 数据库名;</td>
+				</tr>
+				<tr>
+					<td>查看某个数据库的定义信息.show create database 数据库名;</td>
+				</tr>
+				<tr>
+					<td>删除数据库:</td>
+					<td>删除数据库:drop database 数据库名;</td>
+				</tr>
+				<tr>
+					<td>修改数据库:</td>
+					<td>修改数据库修改的是的数据库的字符集和校对规则.alter database 数据库名 character set 新字符集 collate 校对规则;</td>
+				</tr>
+				<tr>
+					<td>切换数据库:</td>
+					<td>use 数据库名称;</td>
+				</tr>
+			</table>
+		</ul>
+		  </div>
+		  <div class="tab-pane fade" id="settings">4</div>
+		  <div class="tab-pane fade" id="settings">5</div>
+		</div>
+		
+
+		
+		<script>
+		  $(function () {
+		    $('#myTab a:last').tab('show')
+		  })
+		</script>
+		
+		<!--$('#myTab a[href="#profile"]').tab('show') // Select tab by name
+		$('#myTab a:first').tab('show') // Select first tab
+		$('#myTab a:last').tab('show') // Select last tab
+		$('#myTab li:eq(2) a').tab('show') // Select third tab (0-indexed)-->
+		
+		
+		
+		
+
+		<!--<div class="panel-group" id="accordion">
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+		          	什么是数据库
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseOne" class="panel-collapse collapse in">
+		      <div class="panel-body">
+		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+		          	关系型的数据库存放的都是实体之间的关系
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+		          	常见关系型数据库
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseThree" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		      </div>
+		    </div>
+		  </div>
+		</div>-->
+		
+
+		
+		
+		
+		
+		
+
+	</body>
+</html>
