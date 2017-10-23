@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<table width="100%" border="0">
+  <tr>
+    <td>SQL对单表记录操作</td>
+    <td colspan="7">&nbsp;</td>
+  </tr>
+  <tr>
+    <td rowspan="4">插入记录：insert</td>
+    <td>insert into 表名 (列名,列名,...) values (值1,值2,...);</td>
+    <td colspan="4">---插入指定列的值</td>
+    <td rowspan="4">注意事项：</td>
+    <td>* 列名的个数与值的个数对应.</td>
+  </tr>
+  <tr>
+    <td>insert into 表名 (列名,列名,...) values<br />
+      (值1,值2,...),<br />
+      (值1,值2,...),<br />
+      (值1,值2,...);</td>
+    <td colspan="4">-- 批量插入</td>
+    <td>* 列的类型与值的类型对应.位置也要对应.</td>
+  </tr>
+  <tr>
+    <td>insert into 表名 values (值1,值2,...);</td>
+    <td colspan="4">---插入所有列的值</td>
+    <td>* 列的类型如果是字符串或者日期,写值的时候使用单引号将值引起来.</td>
+  </tr>
+  <tr>
+    <td>插入中文报错:修改MYSQL的安装路径/my.ini文件 client 编码为gbk</td>
+    <td colspan="4">重新启动mysql服务</td>
+    <td>* 插入的值的最大长度不能超过列的最大长度.</td>
+  </tr>
+  <tr>
+    <td rowspan="3">修改记录：update</td>
+    <td colspan="5" rowspan="3"> update 表 set 列名=值,列名=值 [ where 条件];</td>
+    <td rowspan="3">注意事项：</td>
+    <td>* 列名和值类型也要一致.</td>
+  </tr>
+  <tr>
+    <td>* 值不能超过列的最大长度.</td>
+  </tr>
+  <tr>
+    <td>* 值是字符串或日期,需要使用单引号.</td>
+  </tr>
+  <tr>
+    <td rowspan="5">删除记录：delete</td>
+    <td colspan="5" rowspan="2">delete from 表 [ where 条件];</td>
+    <td rowspan="2">注意事项：</td>
+    <td>* 删除表中的一行记录,不能删除某列值</td>
+  </tr>
+  <tr>
+    <td>* 如果没有条件删除表中的所有列.</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">删除表中的所有记录 truncate 表名 和 delete from 表名区别?</td>
+    <td colspan="6">truncate table 删除表的记录：将整个表删除掉,重新创建一个新的表. truncate 属于DDL.</td>
+  </tr>
+  <tr>
+    <td colspan="6">delete from 删除表的记录：一条一条进行删除. delete属于DML。</td>
+  </tr>
+  <tr>
+    <td colspan="6">事务管理 只能作用在DML语句上.如果在一个事务中使用delete删除所有记录，可以找回 rollback.</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="19">查询记录：select</td>
+    <td>基本查询</td>
+    <td colspan="4">select [distinct] *|列名 from 表 [where 条件];</td>
+    <td rowspan="19">&nbsp;</td>
+    <td rowspan="19">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>别名查询</td>
+    <td colspan="4">使用 as 起别名, as 可以省略.</td>
+  </tr>
+  <tr>
+    <td rowspan="6">条件查询</td>
+    <td>=  &gt;  &lt;  &gt;=  &lt;=  &lt;&gt;</td>
+    <td colspan="3">between 值1 and 值2</td>
+  </tr>
+  <tr>
+    <td>like</td>
+    <td colspan="3">可以使用占位符: _ 和 %  ：下划线匹配一个字符, %:可以匹配任意多个字符</td>
+  </tr>
+  <tr>
+    <td> in</td>
+    <td colspan="3">后跟着一组值 id in (1,2,3)</td>
+  </tr>
+  <tr>
+    <td colspan="4">and or not</td>
+  </tr>
+  <tr>
+    <td colspan="4">is not null ; is null</td>
+  </tr>
+  <tr>
+    <td>limit</td>
+    <td colspan="3">数据分页,是MySQL所特有的关键字 (orcale: rownum sqlserver : top)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">排序：order by</td>
+    <td colspan="4">asc 升序(默认)</td>
+  </tr>
+  <tr>
+    <td colspan="4">desc 降序</td>
+  </tr>
+  <tr>
+    <td rowspan="5">聚合函数:</td>
+    <td>sum()</td>
+    <td>ifnull(english,0)</td>
+    <td>如果english是null的话,就把它改为0</td>
+    <td>任何值+null = null</td>
+  </tr>
+  <tr>
+    <td colspan="4">count(*)</td>
+  </tr>
+  <tr>
+    <td colspan="4">max()</td>
+  </tr>
+  <tr>
+    <td colspan="4">min()</td>
+  </tr>
+  <tr>
+    <td colspan="4">avg()</td>
+  </tr>
+  <tr>
+    <td rowspan="2">where 和 having的区别?</td>
+    <td colspan="4">where 用于分组前 后不能跟聚合函数</td>
+  </tr>
+  <tr>
+    <td colspan="4">having 用于分组后 可以跟聚合函数，用于二次条件筛选</td>
+  </tr>
+  <tr>
+    <td>分组：group by</td>
+    <td colspan="4">分组条件过滤：having</td>
+  </tr>
+  <tr>
+    <td>SQL的查询语句的总结</td>
+    <td colspan="4">顺序:	s...f...w...g...h...o...;</td>
+  </tr>
+</table>
+</body>
+</html>

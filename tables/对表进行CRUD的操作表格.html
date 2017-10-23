@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<table width="100%" border="0">
+  <tr>
+    <td>对表进行CRUD的操作</td>
+    <td colspan="6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td rowspan="17">创建表</td>
+    <td colspan="2">语法:</td>
+    <td colspan="4">create table 表名 (<br />
+字段名 类型(长度) 约束,<br />
+字段名 类型(长度) 约束,<br />
+字段名 类型(长度) 约束<br />
+);</td>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="13">数据类型:</td>
+    <td colspan="4">Java类型 MySQL</td>
+  </tr>
+  <tr>
+    <td colspan="4"> byte/short/int/long tinyint/smallint/int/bigint</td>
+  </tr>
+  <tr>
+    <td rowspan="2">String char/varchar </td>
+    <td rowspan="2">区别?  char是固定长度的字符串,varchar可变长度的字符串.</td>
+    <td colspan="2">char(8) 和 varchar(8)</td>
+  </tr>
+  <tr>
+    <td colspan="2">如果插入一个字符串hello 插入到char 那么 插入hello   .<br />
+    插入到varchar中 插入hello</td>
+  </tr>
+  <tr>
+    <td colspan="4">float float</td>
+  </tr>
+  <tr>
+    <td colspan="4">double double</td>
+  </tr>
+  <tr>
+    <td colspan="4">boolean bit</td>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="2">Date date/time/datetime/timestamp</td>
+    <td colspan="2">datetime和timestamp都是既有日期又有时间的日期类型</td>
+  </tr>
+  <tr>
+    <td colspan="2">区别? datetime需要使用外部传入的日期.如果没传这个值就是Null. timestamp会使用系统当前的时间作为这个值的默认值.</td>
+  </tr>
+  <tr>
+    <td colspan="4">***** MYSQL中除了字符串类型需要设置长度其他的类型都有默认长度.</td>
+  </tr>
+  <tr>
+    <td colspan="2" rowspan="3">文件</td>
+    <td>文本文件</td>
+    <td>Text</td>
+  </tr>
+  <tr>
+    <td>二级制文件</td>
+    <td>BLOB</td>
+  </tr>
+  <tr>
+    <td colspan="2">***** Oralce使用CLOB/BLOB 对应文本文件/二进制文件</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">约束：</td>
+    <td rowspan="3">单表约束：</td>
+    <td colspan="4">主键约束：primary key (默认就是唯一非空的)</td>
+  </tr>
+  <tr>
+    <td colspan="4">唯一约束：unique</td>
+  </tr>
+  <tr>
+    <td colspan="4">非空约束：not null</td>
+  </tr>
+  
+  <tr>
+    <td rowspan="3">表的查看</td>
+    <td colspan="5">查看数据库中有哪些表：</td>
+    <td>show tables;</td>
+  </tr>
+  <tr>
+    <td colspan="5">查看表结构:</td>
+    <td>desc 表名;</td>
+  </tr>
+  <tr>
+    <td colspan="5">查看表的创建语句</td>
+    <td>show create table 表名;</td>
+  </tr>
+  <tr>
+    <td>表的删除</td>
+    <td colspan="6">drop table 表名;</td>
+  </tr>
+  <tr>
+    <td rowspan="6">表的修改</td>
+    <td colspan="4">修改表添加列：</td>
+    <td>alter table 表名 add 列名 类型(长度) 约束;</td>
+    <td>alter table employee add image varchar(50);</td>
+  </tr>
+  <tr>
+    <td colspan="4">修改表删除列：</td>
+    <td>alter table 表名 drop 列名;</td>
+    <td>alter table employee drop job;</td>
+  </tr>
+  <tr>
+    <td colspan="4">修改表的列的类型长度及约束:</td>
+    <td>alter table 表名 modify 列名 类型(长度) 约束;</td>
+    <td>alter table employee modify image varchar(80) not null;</td>
+  </tr>
+  <tr>
+    <td colspan="4">修改表的列名：</td>
+    <td>alter table 表名 change 旧列名 新列名 类型(长度) 约束;</td>
+    <td>alter table employee change image eimage varchar(60);</td>
+  </tr>
+  <tr>
+    <td colspan="4">修改表名：</td>
+    <td>rename table 旧表名 to 新表名;</td>
+    <td>rename table employee to user;</td>
+  </tr>
+  <tr>
+    <td colspan="4">修改表的字符集：</td>
+    <td>alter table 表名character set 字符集;</td>
+    <td>alter table user character set gbk;</td>
+  </tr>
+</table>
+</body>
+</html>
