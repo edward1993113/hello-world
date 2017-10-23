@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+	<script>
+		//获取函数入口
+		$(function() {
+			//编写点击移除事件函数
+			$("#removeLeft").click(function() {
+				$("#selectRight option:selected").appendTo("#selectLeft");
+			});
+			//编写移除全部的事LeftLeft件函数
+			$("#removeAll").click(function() {
+				$("#selectRight option").appendTo("#selectLeft");
+			});
+			//编写双击移除的事件函数
+			$("#selectLeft").dblclick(function() {
+				$("option:selected", this).appendTo("#selectRight");
+			})
+			//编写添加事件的函数
+			$("#addRight").click(function() {
+				$("#selectLeft option:selected").appendTo("#selectRight");
+			});
+			//编写移除全部的事件函数
+			$("#addAll").click(function() {
+				$("#selectLeft option").appendTo("#selectRight");
+			});
+			//编写双击移除全部的事件函数
+			$("#selectRight").dblclick(function() {
+				$("option:selected", this).appendTo("#selectLeft");
+			});
+		});
+	</script>
+
+	<body>
+		<form>
+			<table border="1" width="500" align="center" style="border-collapse: collapse;">
+				<tr>
+					<td>分类名称</td>
+					<td><input type="text" name="cname" value="手机数码"></td>
+				</tr>
+				<tr>
+					<td>分类描述</td>
+					<td><textarea name="cdesc" cols="20" rows="4">手机数码</textarea></td>
+				</tr>
+				<tr>
+					<td>分类商品</td>
+					<td>
+						<span style="float: left;">
+					已有的商品<br/>
+					
+					<select id="selectLeft" multiple="multiple" >
+						<option>IPhone</option>
+						<option>三星</option>
+						<option>小米</option>
+						<option>oppo</option>
+						<option>索尼</option>
+					</select>
+					<p id="addRight"><input type="button"value="移除"></p>
+					<p id="addAll"><input type="button"value="全部移除"></p>
+						</span>
+
+						<span style="float:right">
+					未有的商品<br/>
+					<!--multiple="multiple"表示显示下拉列表的所有内容-->
+					<select id="selectRight" multiple="multiple">
+						<option>华为</option>
+						<option>HTC</option>
+					</select>
+					<p id="removeLeft"><input type="button"value="添加"></p>
+					<p id="removeAll"><input type="button"value="添加全部"></p>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="确定"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+
+</html>

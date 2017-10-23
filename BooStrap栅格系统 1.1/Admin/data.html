@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="css/dc.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link href="../Public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-1.8.3.js" ></script>
+		
+		<!-- 引入BootStrap的CSS -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css" />
+		<!-- 引入JS-->
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="../js/jquery-1.11.3.min.js" ></script>
+		
+		<script>
+//			function changeColor(){
+//				var tab = document.getElementById("tab");
+//				var count = tab.rows.length;
+//				for (var i = 0; i < count; i++) {
+//					if (i % 2 == 0) {
+//						tab.rows[i].style.backgroundColor = "gold";
+//					}else{
+//						tab.rows[i].style.backgroundColor = "goldenrod";
+//					}
+//				}
+//			}
+
+			// 表格隔行换色
+			function changeColor(){
+				var tab = document.getElementById("tab");
+				var len = tab.tBodies[0].rows.length;
+				for (var i = 0; i < len; i++) {
+					if (i % 2 == 0) {
+						tab.tBodies[0].rows[i].style.backgroundColor = "gold";
+					}else{
+						tab.tBodies[0].rows[i].style.backgroundColor = "goldenrod";
+					}
+				}
+			}
+			
+//			// 复选框全选和全不选 
+//			function selectAll(){
+//				var selectAll = document.getElementById("selectAll");
+//				var ids = document.getElementsByName("ids");
+//				if (selectAll.checked == true) {
+//					for (var i = 0; i < ids.length; i++) {
+//						ids[i].checked = true;
+//					}
+//				} else{
+//					for (var i = 0; i < ids.length; i++) {
+//						ids[i].checked = false;
+//					}
+//				}
+//			}
+			
+			// 复选框全选和全不选的简化
+			function selectAll(){
+				var selectAll = document.getElementById("selectAll");
+				var ids = document.getElementsByName("ids");
+				for (var i = 0; i < ids.length; i++) {
+					ids[i].checked = selectAll.checked;
+				}
+			}
+			
+			
+			
+			// 删除记录
+			function del(){
+				var del = confirm("您确定删除该条记录吗？");
+			}
+			
+			// 修改记录
+			function edit(){
+				// prompt("请输入新的商品的价格：");
+				prompt("请输入新的商品的价格：","666");
+			}
+			
+			// 打开窗口
+			function openWindow(){
+				open("../divcss_index.html","","width=1000,height=600");
+			}
+			
+			// 上一个浏览页面
+			function priPage(){
+//				history.go(-1);
+				 history.back();
+			}
+			
+			// 下一个浏览页面
+			function nextPage(){
+				 history.forward();
+			}
+			
+			// 跳转
+			function jump(){
+				location.href="../divcss_index.html";
+			}
+			
+			// 添加
+			function add(){
+				location.href="add.html";
+			}
+			
+		</script>
+		
+	</head>
+	<body onload="changeColor()">
+		<table id="tab" border="1" width="100%" align="center">
+			<thead>
+				<tr>
+					<td colspan="5">
+						<input type="button" class="btn btn-default" value="添加" onclick="add()"/>
+						<input type="button" class="btn btn-default" value="修改" onclick="edit()" />
+						<input type="button" class="btn btn-default" value="删除" onclick="del()" />
+						<input type="button" class="btn btn-default" value="打开" onclick="openWindow()" />
+						<input type="button" class="btn btn-default" value="上一个浏览页面" onclick="priPage()"/>
+						<input type="button" class="btn btn-default" value="下一个浏览页面" onclick="nextPage()"/>
+						<input type="button" class="btn btn-default" value="跳转" onclick="jump()"/>
+					</td>
+				</tr>
+				<tr>
+					<th><input type="checkbox" id="selectAll" name="selectAll" onclick="selectAll()"></th>
+					<th>分类的ID</th>
+					<th>分类的名称</th>
+					<th>分类的描述</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="ids"></td>
+					<td>1</td>
+					<td>手机数码</td>
+					<td>手机数码</td>
+					<td class="houtaiClass">
+						<ul>
+							<li><a href="view.html">查看</a></li>
+							<li><a href="edit.html">修改</a></li>
+							<li><a href="" onclick="del()">删除</a></li>
+						</ul>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><input type="checkbox" name="ids"></td>
+					<td>2</td>
+					<td>电脑办公</td>
+					<td>电脑办公</td>
+					<td class="houtaiClass">
+						<ul>
+							<li><a href="Admin/电脑办公/view.html">查看</a></li>
+							<li><a href="Admin/电脑办公/edit.html">修改</a></li>
+							<li><a href="" onclick="del()">删除</a></li>
+						</ul>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><input type="checkbox" name="ids"></td>
+					<td>3</td>
+					<td>烟酒糖茶</td>
+					<td>烟酒糖茶</td>
+					<td class="houtaiClass">
+						<ul>
+							<li><a href="Admin/烟酒糖茶/view.html">查看</a></li>
+							<li><a href="Admin/烟酒糖茶/edit.html">修改</a></li>
+							<li><a href="" onclick="del()">删除</a></li>
+						</ul>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><input type="checkbox" name="ids"></td>
+					<td>4</td>
+					<td>鞋靴箱包</td>
+					<td>鞋靴箱包</td>
+					<td class="houtaiClass">
+						<ul>
+							<li><a href="Admin/鞋靴箱包/view.html">查看</a></li>
+							<li><a href="Admin/鞋靴箱包/edit.html">修改</a></li>
+							<li><a href="" onclick="del()">删除</a></li>
+						</ul>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><input type="checkbox" name="ids"></td>
+					<td>5</td>
+					<td>汽车用品</td>
+					<td>汽车用品</td>
+					<td class="houtaiClass">
+						<ul>
+							<li><a href="Admin/汽车用品/view.html">查看</a></li>
+							<li><a href="Admin/汽车用品/edit.html">修改</a></li>
+							<li><a href="" onclick="del()">删除</a></li>
+						</ul>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="5">
+						<input type="button" class="btn btn-default" value="返回" onclick="window.history.go(-1)">
+					</td>
+				</tr>
+				
+		       <div class='wst-body'>  
+		        <table class="table table-hover table-striped table-bordered wst-list">
+		             <tr>
+		               <td>
+		               <button type="submit" class="btn btn-primary glyphicon glyphicon-search" >查询</button> 
+		               <a class="btn btn-success glyphicon glyphicon-plus">新增</a>
+		               <a class="btn btn-default glyphicon glyphicon-pencil" >修改</a>
+		               <a class="btn btn-default glyphicon glyphicon-trash" >刪除</a>
+		               </td>
+		             </tr>
+		        </table>
+				
+			</tbody>
+		</table>
+	</body>
+</html>

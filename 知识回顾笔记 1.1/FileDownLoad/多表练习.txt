@@ -1,0 +1,132 @@
+部门表
+
+CREATE TABLE DEPT(
+	DEPTNO INT PRIMARY KEY,  -- 部门编号
+    DNAME VARCHAR(14) ,  -- 部门名称
+    LOC VARCHAR(13) ) ; -- 部门地址
+ 
+INSERT INTO DEPT VALUES (10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES (30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES (40,'OPERATIONS','BOSTON');
+ 
+员工表
+ 
+CREATE TABLE EMP
+(
+	EMPNO INT  PRIMARY KEY,  -- 员工编号
+    ENAME VARCHAR(10),  -- 员工名称
+    JOB VARCHAR(9), -- 工作
+    MGR DOUBLE, -- 直属领导编号
+    HIREDATE DATE,  -- 入职时间
+    SAL DOUBLE, -- 工资
+    COMM DOUBLE, -- 奖金
+    DEPTNO INT, -- 部门号
+    FOREIGN KEY(DEPTNO) REFERENCES DEPT(DEPTNO)
+);
+
+SELECT * FROM emp;
+    
+INSERT INTO EMP VALUES
+(7369,'SMITH','CLERK',7902,'1980-12-17',800,NULL,20);
+INSERT INTO EMP VALUES
+(7499,'ALLEN','SALESMAN',7698,'1981-02-20',1600,300,30);
+INSERT INTO EMP VALUES
+(7521,'WARD','SALESMAN',7698,'1981-02-22',1250,500,30);
+INSERT INTO EMP VALUES
+(7566,'JONES','MANAGER',7839,'1981-04-02',2975,NULL,20);
+INSERT INTO EMP VALUES
+(7654,'MARTIN','SALESMAN',7698,'1981-09-28',1250,1400,30);
+INSERT INTO EMP VALUES
+(7698,'BLAKE','MANAGER',7839,'1981-05-01',2850,NULL,30);
+INSERT INTO EMP VALUES
+(7782,'CLARK','MANAGER',7839,'1981-06-09',2450,NULL,10);
+INSERT INTO EMP VALUES
+(7788,'SCOTT','ANALYST',7566,'1987-07-13',3000,NULL,20);
+INSERT INTO EMP VALUES
+(7839,'KING','PRESIDENT',NULL,'1981-11-17',5000,NULL,10);
+INSERT INTO EMP VALUES
+(7844,'TURNER','SALESMAN',7698,'1981-09-08',1500,0,30);
+INSERT INTO EMP VALUES
+(7876,'ADAMS','CLERK',7788,'1987-07-13',1100,NULL,20);
+INSERT INTO EMP VALUES
+(7900,'JAMES','CLERK',7698,'1981-12-03',950,NULL,30);
+INSERT INTO EMP VALUES
+(7902,'FORD','ANALYST',7566,'1981-12-03',3000,NULL,20);
+INSERT INTO EMP VALUES
+(7934,'MILLER','CLERK',7782,'1982-01-23',1300,NULL,10);  
+    
+ 
+工资等级表
+ 
+CREATE TABLE SALGRADE
+(
+    GRADE INT,  -- 工资等级
+    LOSAL DOUBLE, -- 最低工资
+    HISAL DOUBLE ); -- 最高工资
+INSERT INTO SALGRADE VALUES (1,700,1200);
+INSERT INTO SALGRADE VALUES (2,1201,1400);
+INSERT INTO SALGRADE VALUES (3,1401,2000);
+INSERT INTO SALGRADE VALUES (4,2001,3000);
+INSERT INTO SALGRADE VALUES (5,3001,9999);
+
+
+
+1、返回拥有员工的部门名、部门号。(dept,emp)	
+select distinct dept.dname,dept.deptno from dept,emp where dept.deptno=emp.deptno;
+2、工资水平多于smith的员工信息。
+select * from emp where sal>(select sal from emp where ename='smith');
+3、返回员工和所属经理的姓名。（自连接）
+select e1.ename as 员工,e2.ename as 经理 from emp as e1,emp as e2 where e1.mgr=e2.empno;
+select e1.ename as 员工,e2.ename as 经理 from emp as e1 left join emp as e2 on e1.mgr=e2.empno;
+4、返回雇员的雇佣日期早于其领导雇佣日期的员工及其领导姓名。(在日期类型可以直接比较)
+"select e1.ename as 员工,e1.hiredate 员工入职时间,e2.ename as 经理 ,e2.hiredate 经理入职时间
+from emp as e1,emp as e2 where e1.hiredate<e2.hiredate and e1.mgr=e2.empno;"
+5、返回员工姓名及其所在的部门名称。
+select e.ename 员工姓名,dname 部门名称 from emp e,dept d where e.deptno=d.deptno;
+6、返回从事clerk工作的员工姓名和所在部门名称。
+select e.ename 员工姓名,dname 部门名称 from emp e,dept d where e.job='clerk' and e.deptno=d.deptno;
+
+需要再看的
+7、返回部门号,部门名称及其本部门的最低工资。
+select d.deptno,d.dname,min(e.sal) from dept d,emp e where d.deptno=e.deptno group by deptno;
+
+8、返回销售部(sales)所有员工的姓名。
+select ename from emp where deptno=(select deptno from dept where dname='sales');
+9、返回工资多于平均工资的员工。
+select * from emp where sal>(select avg(sal) from emp);
+10、返回与SCOTT从事相同工作的员工。
+select * from emp where job=(select job from emp where ename='scott') and ename !='scott';
+11、返回与30部门员工工资水平相同的员工姓名与工资。
+select ename,sal from emp where sal in (select sal from emp where deptno=30) and deptno!=30;
+12、返回工资高于30部门所有员工工资水平的员工信息。
+select * from emp where sal > (select max(sal) from emp where deptno=30);
+select * from emp where sal > all(select sal from emp where deptno=30);
+
+需要再看的
+13、返回部门号、部门名、部门所在位置及其每个部门的员工总数。
+select dept.deptno,dept.dname,dept.loc,count(emp.deptno) from dept,emp where dept.deptno=emp.deptno group by deptno;
+
+14、返回员工的姓名、所在部门名及其工资。
+select e.ename,d.dname,e.sal from dept d,emp e where e.deptno=d.deptno;
+15、返回员工的详细信息。(包括部门名)
+select e.*,d.dname from emp e,dept d where e.deptno=d.deptno;
+16、返回员工工作及其从事此工作的最低工资。
+select job,min(sal) from emp group by job;
+
+
+需要再看的
+17、返回不同部门经理的最低工资。
+select deptno,min(sal) from emp where job='manager' group by deptno;
+18、计算出员工的年薪，并且以年薪排序。
+select  (sal+ifnull(comm,0))*12 as 年薪 from emp order by 年薪;
+19、返回工资处于第四级别的员工的姓名。
+select emp.* from emp,(select losal,hisal from salgrade where grade=4) gra where emp.sal between gra.losal and gra.hisal;
+select emp.* from emp,salgrade where emp.sal>=salgrade.losal and emp.sal<=salgrade.hisal and salgrade.grade=4;
+20、返回工资为二等级的职员名字、部门所在地、和二等级的最低工资和最高工资
+"select e.ename,d.loc,s.losal,s.hisal from emp e,dept d,salgrade s where e.deptno=d.deptno and s.grade=2 
+and e.sal between s.losal and s.hisal;"
+21、返回二等级员工工资的最低工资和最高工资
+select max(sal),min(sal) from emp,salgrade where emp.sal between salgrade.losal and salgrade.hisal and salgrade.grade=2;
+
+ 

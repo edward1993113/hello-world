@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!-- 根据设备宽度，调整缩放比例 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<link rel="stylesheet" href="css/dc.css" />
+		<script type="text/javascript" src="js/dc.js" ></script>
+		
+		<!-- 引入BootStrap的CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<!-- 引入JS-->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		
+		 <!--跳到顶部-->
+		<link id="scrollUpTheme" rel="stylesheet" href="css/themes/pill.css">
+		<link id="scrollUpTheme" rel="stylesheet" href="css/labs.css">
+		<!--<script type="text/javascript" src="js/lib/jquery-1.8.3.min.js"></script>-->
+		<script type="text/javascript" src="js/jquery.scrollUp.min.js"></script>
+		<!--调到底部-->
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
+		
+		<style>
+			/*returnTop*/
+			p#back-to-top{
+			    position:fixed;
+			    display:none;
+			    bottom:100px;
+			    right:80px;
+			}
+			p#back-to-top a{
+			    text-align:center;
+			    text-decoration:none;
+			    color:#d1d1d1;
+			    display:block;
+			    width:64px;
+			    /*使用CSS3中的transition属性给跳转链接中的文字添加渐变效果*/
+			    -moz-transition:color 1s;
+			    -webkit-transition:color 1s;
+			    -o-transition:color 1s;
+			}
+			p#back-to-top a:hover{
+			    color:#979797;
+			}
+			p#back-to-top a span{
+			    background:transparent url(../BooStrap栅格系统/img/bg.jpg) no-repeat -25px -290px;
+			    border-radius:6px;
+			    display:block;
+			    height:64px;
+			    width:56px;
+			    margin-bottom:5px;
+			    /*使用CSS3中的transition属性给<span>标签背景颜色添加渐变效果*/
+			    -moz-transition:background 1s;
+			    -webkit-transition:background 1s;
+			    -o-transition:background 1s;
+			}
+			#back-to-top a:hover span{
+			    background:transparent url(../BooStrap栅格系统/img/bg.jpg) no-repeat -25px -290px;
+			}
+			
+			body{
+            background-color:white;
+            margin:0px;
+            padding:120px 0px 0px;
+            font-family:"Trebuchet MS";
+            color:#555;
+        }
+        .content{
+            width:700px;
+            padding:30px;
+            position:absolute;
+            top:40px;
+            left:20%;
+            right:20%;
+            background-color:#fff;
+            text-align:justify;
+            -moz-border-radius:30px;
+            -webkit-border-radius:30px;
+            border:2px solid #777;
+
+        }
+        h1, h2, h3{
+            border-bottom:1px dashed #ccc;
+            padding:20px;
+        }
+        blockquote{
+            background-color:#f0f0f0;
+            padding:10px;
+            font-style:italic;
+        }
+        a.back{
+            background:transparent url(codrops_back.png) no-repeat top left;
+            position:absolute;
+            top:5px;
+            right:5px;
+            width:165px;
+            height:25px;
+        }
+		</style>
+		
+		<script>
+			// jQuery显示广告
+			var time ;
+			$(function(){
+				// 设置定时 5秒钟执行一个 显示广告的方法：
+				time = setInterval("showAd()",5000);
+				
+				//当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+		        $(function () {
+		            $(window).scroll(function(){
+		                if ($(window).scrollTop()>100){
+		                    $("#back-to-top").fadeIn(1500);
+		                }
+		                else
+		                {
+		                    $("#back-to-top").fadeOut(1500);
+		                }
+		            });
+		
+		            //当点击跳转链接后，回到页面顶部位置
+		
+		            $("#back-to-top").click(function(){
+		                $('body,html').animate({scrollTop:0},1000);
+		                return false;
+		            });
+		        });
+		        
+		        	// 跳到顶部
+		        	$.scrollUp();
+		        	
+//		        	// 跳到底部
+//					function scrollToEnd(){//滚动到底部
+//			            var h = $(document).height()-$(window).height();
+//			            $(document).scrollTop(h); 
+//					}
+					
+					//滚动到底部
+					var $elem = $('#content');
+				
+					$('#nav_up').fadeIn('slow');
+					$('#nav_down').fadeIn('slow');  
+					
+					$(window).bind('scrollstart', function(){
+						$('#nav_up,#nav_down').stop().animate({'opacity':'0.2'});
+					});
+					$(window).bind('scrollstop', function(){
+						$('#nav_up,#nav_down').stop().animate({'opacity':'1'});
+					});
+					
+					$('#nav_down').click(
+						function (e) {
+							$('html, body').animate({scrollTop: $elem.height()}, 800);
+						}
+					);
+					$('#nav_up').click(
+						function (e) {
+							$('html, body').animate({scrollTop: '0px'}, 800);
+						}
+					);
+				
+			});
+			
+			function showAd(){
+				// 获得元素：
+				//$("#adDiv").show(2000);
+				// $("#adDiv").slideDown(2000);
+				$("#adDiv").fadeIn(3000);
+				clearInterval(time);
+				// 再设置定时 5秒钟隐藏.
+				time = setInterval("hideAd()",5000);
+			}
+			
+			function hideAd(){
+				//$("#adDiv").hide(2000);
+				// $("#adDiv").slideUp(2000);
+				$("#adDiv").fadeOut(3000);
+				clearInterval(time);
+			}
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+		<nav class="navbar navbar-fixed-top" style="background: white;">
+		<div class="indexClass">
+			<div>
+				<div id="adDiv" style="width: 100%;display: none;">
+					<img src="img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" width="100%"/>
+				</div>
+				<!--
+                	LOGO的div
+                -->
+				<div class="logoClass">
+					<a href="divcss_index.html"><img src="img/logo2.png" /></a>
+				</div>
+				
+				<div class="logoClass">
+					<img src="img/header.jpg" />
+				</div>
+				
+				<div class="logoClass">
+					<a href="#">登录</a>
+					<a href="divcss_reg.html">注册</a>
+					<a href="#">购物车</a>
+					&nbsp;&nbsp;
+					<div style="float: right;padding-right: 20px;padding-top: 10px;">
+						<audio controls="controls" height="100" width="100" autoplay="autoplay" loop="loop" title="林俊杰 - 御龙三国志 - 御龙在天 的主题曲.mp3">
+						  	<source src="林俊杰 - 御龙三国志 - 御龙在天 的主题曲.mp3" type="audio/mp3" />
+						 	<source src="song.ogg" type="audio/ogg" />
+							<embed height="100" width="100" src="林俊杰 - 御龙三国志 - 御龙在天 的主题曲.mp3" />
+						</audio>
+					</div>
+				</div>
+				
+				<div class="clearClass"></div>
+			</div>
+			</div>
+			<!--
+            	menu的div
+            -->
+			<div id="menuClass">
+				<ul>
+					<li><a href="divcss_index.html">首页</a>&nbsp;&nbsp;</li>
+					<li><a href="#">电脑办公</a>&nbsp;&nbsp;</li>
+					<li><a href="#">手机数码</a>&nbsp;&nbsp;</li>
+					<li><a href="#">烟酒糖茶</a>&nbsp;&nbsp;</li>
+					<li><a href="#">鞋靴箱包</a>&nbsp;&nbsp;</li>
+					<li><a href="#">汽车用品</a>&nbsp;&nbsp;</li>
+					<li><a href="login.html">后台页面</a></li>
+					<li class="dropdown" id="menu3">
+			        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多 <span class="caret"></span></a>
+			        <ul class="dropdown-menu" id="menu2">
+		            <li><a href="#">热卖单品</a></li>
+		            <li><a href="#">必买清单</a></li>
+		            <li><a href="#">猜你喜欢</a></li>
+		            <!--<li role="separator" class="divider">实惠专业</li>-->
+		            <li class="disabled"><a href="#">时尚精品</a></li>
+		            <!--<li role="separator" class="divider">特色玩味</li>-->
+		            <li><a href="#">品质生活</a></li>
+			        </ul>
+			        </li>
+			        <form class="navbar-form navbar-right" role="搜索" style="padding-right: 20px;">
+				        <div class="form-group">
+				          <input type="text" class="form-control" placeholder="搜索">
+				        </div>
+				        <button type="submit" class="btn btn-default">确定</button>
+				    </form>
+				</ul>
+			</div>
+			
+		</nav>
+		
+		</div>
+		<div class="row">	
+			<div id="imgClass" style="padding-top: 100px;">
+				<img id="img" src="img/3.jpg" width="100%" />
+			</div>
+		</div>
+		
+		<div class="row">	
+			<div class="productClass">
+				<div class="contentClass">
+					<font>
+						热门商品
+					</font>
+					<img src="img/title2.jpg" />
+				</div>
+				
+				<div style="border: 1px solid red;width: 100%;">
+					<div style="width:15%;height: 460px;border:1px solid red;float:left;">
+						<img src="img/big01.jpg" width="100%" height="100%" />
+					</div>
+					
+					<div style="width:85%;height: 460px;border:1px solid red;float:left;">
+						<div>
+							<div style="border:1px solid red;width:48%;float:left;height:228px;">
+								<img src="img/middle01.jpg" width="100%" height="100%" />
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small04.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small05.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small03.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+						</div>
+						
+						<div>
+							<div class="spClass">
+								<center>
+									<img src="img/small03.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small04.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small05.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small03.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small04.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small05.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!--
+            	广告的div
+            -->	
+           <div class="row">
+			<div style="width:100%;border:1px solid red;">
+				<img src="img/ad.jpg" width="100%" height="125">
+			</div>
+			</div>
+			<!--
+            	最新商品的div
+            -->
+            <div class="row">
+            <div class="productClass">
+				<div class="contentClass">
+					<font>
+						最新商品
+					</font>
+					<img src="img/title2.jpg" />
+				</div>
+				
+				<div style="border: 1px solid red;width: 100%;">
+					<div style="width:15%;height: 460px;border:1px solid red;float:left;">
+						<img src="img/big01.jpg" width="100%" height="100%" />
+					</div>
+					
+					<div style="width:85%;height: 460px;border:1px solid red;float:left;">
+						<div>
+							<div style="border:1px solid red;width:48%;float:left;height:228px;">
+								<img src="img/middle01.jpg" width="100%" height="100%" />
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small04.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small05.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small03.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+						</div>
+						
+						<div>
+							<div class="spClass">
+								<center>
+									<img src="img/small03.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small04.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small05.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small03.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small04.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+							
+							<div class="spClass">
+								<center>
+									<img src="img/small05.jpg" /><br /><br />
+									<font>商品</font><br /><br />
+									<font color="red">¥888.88</font>
+								</center>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		<!--
+        	页脚的div
+        -->
+        <div class="row">
+		<div style="width:100%;border:1px solid red;">
+			<img src="img/footer.jpg" width="100%" />
+		</div>
+		</div>
+		<!--
+        	版权的div
+        -->
+        <div class="row">
+        <div style="width:100%;border:1px solid red;">
+        	<center>
+        		    <a href="about.html" style="color: blue;">关于我们</a> 联系我们 招贤纳士 法律声明 <a href="a.html" style="color: blue;">友情链接</a> 支付方式 配送方式 服务声明 广告声明 <br/>
+
+					Copyright © 2005-2016 传智商城 版权所有 
+        	</center>
+        </div>
+        </div>
+        </div>
+        <div>
+        	<div style="display:none;" class="nav_up" id="nav_up"></div>
+			<div style="display:none;" class="nav_down" id="nav_down"></div>
+        	 <!--返回顶部方式一：-->
+        	<!--<a href="javascript:window.scrollTo( 0, 0 );" >返回顶部</a>-->
+        	 <!--返回顶部方式二：-->
+        	<!--<p id="back-to-top"><a href="#top"><span></span>返回顶部</a></p>-->
+        </div>
+        
+        
+	</body>
+</html>

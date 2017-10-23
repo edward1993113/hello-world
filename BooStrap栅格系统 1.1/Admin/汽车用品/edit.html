@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>详细信息</title>
+		
+		<link rel="stylesheet" href="../../css/dc.css" />
+		<script type="text/javascript" src="../../js/dc.js" ></script>
+		
+		<style>
+			th{
+				width:150px;
+			}
+			
+		</style>
+		
+		<script>
+			//表格隔行换色
+			function changeColor(){
+				var tab = document.getElementById("tab");
+				var len = tab.tBodies[0].rows.length;
+				for (var i = 0; i < len; i++) {
+					if (i % 2 == 0) {
+						tab.tBodies[0].rows[i].style.backgroundColor = "#ADFF2F";
+					}else{
+						tab.tBodies[0].rows[i].style.backgroundColor = "green";
+					}
+				}
+			}
+		</script>
+		
+	</head>
+	<body onload="changeColor()">
+		<table id="tab">
+			<tr>
+				<font size="5" color="#1859A5">详细信息&raquo;修改</font>
+			</tr>
+			
+			<hr color="#DF9A07" />
+			
+			<tr>
+				<th>分类的ID:</th>
+				<td><input type="text" class="form-control" value="5" readonly="readonly" disabled="disabled" style="width: 200px;"></td>
+			</tr>
+			
+			<tr>
+				<th>分类的名称:</th>
+				<td><input type="text" class="form-control" value="汽车用品" style="width: 200px;"></td>
+			</tr>
+			
+			<tr>
+				<th>分类的描述:</th>
+				<td><input type="text" class="form-control" value="汽车用品" style="width: 200px;"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2"><input type="button" value="返回" onclick="window.history.go(-1)"></td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" href="css/zzsc.css" />
+		<!-- 根据设备宽度，调整缩放比例 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 引入BootStrap的CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<!-- 引入JS-->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		
+		<script src="js/jquery.longShadow.js"></script>
+		<script type="text/javascript" src="js/zzsc.js" ></script>
+		
+		<!--鼠标移到图片放大-->
+		 <style type="text/css">  
+            div img{  
+                cursor: pointer;  
+                transition: all 0.6s;  
+            }  
+            div img:hover{  
+                transform: scale(1.8);  
+            }  
+        </style>  
+		
+		<script>
+			$(function() {
+				$('#one').longShadow({
+					colorShadow: '#a13c32',
+					sizeShadow: 70
+				});
+		
+				$('#two').longShadow({
+					colorShadow: '#af7a4b',
+					sizeShadow: 70,
+					directionShadow: 'bottom-left'
+				});
+		
+				$('#three').longShadow({
+					colorShadow: '#828f46',
+					sizeShadow: 20,
+					directionShadow: 'top'
+				});
+		
+				$('#four').longShadow({
+					colorShadow: '#3b6767',
+					sizeShadow: 20,
+					directionShadow: 'bottom'
+				});
+		
+				$('#five').longShadow({
+					colorShadow: '#3e9277',
+					sizeShadow: 70,
+					directionShadow: 'top-right'
+				});
+		
+				$('#six').longShadow({
+					colorShadow: '#525283',
+					sizeShadow: 70,
+					directionShadow: 'top-left'
+				});		
+				
+			});
+			
+			
+			// 钟表
+			function startTime(){
+				var today=new Date()
+				var h=today.getHours()
+				var m=today.getMinutes()
+				var s=today.getSeconds()
+				// add a zero in front of numbers<10
+				m=checkTime(m)
+				s=checkTime(s)
+				document.getElementById('txt').innerHTML=h+":"+m+":"+s
+				t=setTimeout('startTime()',500)
+			}
+			
+			function checkTime(i){
+				if (i<10) 
+				  {i="0" + i}
+				  return i
+			}
+			
+			
+		</script>
+		
+		<title>知识回顾笔记</title>
+	</head>
+	<body onload="startTime()" style="background-color: white;">
+		<ul class="nav nav-tabs navbar-fixed-top " style="background-color: white;" id="myTab">
+		  <li><span><a href="index.html" data-toggle="tooltip" title="EDWARD"><img src="img/1_03.png" style="padding-top: 28px;width: 80px;"></a></span></li>
+		  <li class="active"><a href="#MYSQL" data-toggle="tab" data-toggle="tooltip" title="MYSQL">MYSQL<span class="badge pull-right alert-link">4</span></a></li>
+		  <li><a href="#JDBC" data-toggle="tab" data-toggle="tooltip" title="JDBC">JDBC<span class="badge pull-right alert-link">1</span></a></li>
+		  <li><a href="#messages" data-toggle="tab" data-toggle="tooltip" title="SQL对数据库和表操作">SQL对数据库和表操作</a></li>
+		  <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" style="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="tooltip" title="更多">更多 <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	          	<li><a href="#">品质生活</a></li>
+	            <li><a href="#BootStrap" data-toggle="tab" data-toggle="tooltip" title="BootStrap">BootStrap</a></li>
+	            <li><a href="#">猜你喜欢</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li class="previous disabled"><a href="#">时尚精品</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#lianxi" data-toggle="tab" data-toggle="tooltip" title="综合练习">综合练习<span class="badge alert-info">1</span></a></li>
+	            <li role="separator" class="divider"></li>
+	            <li><a href="#xiazai" data-toggle="tab" data-toggle="tooltip" title="文件下载">文件下载<span class="badge alert-info">1</span></a></li>
+	          </ul>
+	        </li>
+	        
+	        <li><a href="#settings" data-toggle="tab" data-toggle="tooltip" title="目录">目录<span class="badge alert-link">27</span></a></li>
+	        
+	        <font color="#0096D6" style="padding-left: 100px;padding-top: 20px;">
+				<script>
+					var d=new Date()
+					var day=d.getDate()
+					var month=d.getMonth() + 1
+					var year=d.getFullYear()
+					
+					document.write(year + "年" + month + "月" + day + "日")
+					
+				</script>
+				<span id="txt"></span>
+				
+				<script>
+					var d=new Date()
+					var weekday=new Array(7)
+					weekday[0]="星期日"
+					weekday[1]="星期一"
+					weekday[2]="星期二"
+					weekday[3]="星期三"
+					weekday[4]="星期四"
+					weekday[5]="星期五"
+					weekday[6]="星期六"
+					
+					document.write(weekday[d.getDay()]);
+				</script>
+			</font>
+	        
+	        <!--音乐-->
+			<audio height="100" width="100" autoplay="autoplay" loop="loop" title="姚贝娜 - 御龙吟 - 御龙在天 插曲.mp3">
+			  	<source src="file/姚贝娜 - 御龙吟 - 御龙在天 插曲.mp3" type="audio/mp3" />
+			 	<source src="song.ogg" type="audio/ogg" />
+				<embed height="100" width="100" src="姚贝娜 - 御龙吟 - 御龙在天 插曲.mp3" />
+			</audio>
+			
+	        
+	        <!--搜索-->
+	        <form class="navbar-form navbar-right" style="background-color: white;padding-right: 20px;height: 25px;" role="search">
+		      <div class="form-group">
+		        <input type="text" class="form-control" style="width: 200px;" placeholder="不要在该奋斗的年龄选择了安逸！" data-toggle="tooltip" title="不要在该奋斗的年龄选择了安逸！">
+		      </div>
+		      <button type="submit" class="btn btn-default" data-toggle="tooltip" title="搜索">搜索</button>
+		    </form>
+		    
+		</ul>
+		
+		
+
+
+
+
+
+
+
+		<div class="tab-content" style="padding-top: 60px;">
+		  <div class="tab-pane fade in active" id="MYSQL">
+		  	<div class="panel-group" id="accordion">
+			  <div class="panel panel-default">
+			    <!--<div class="panel-heading">-->
+			      <h4 class="panel-title list-group-item active">
+			        <ol class="breadcrumb">
+			        	<span class="badge alert-danger">1</span>
+					  <li><a href="#什么是数据库" data-toggle="tooltip" title="什么是数据库">什么是数据库</a></li>
+					  <li><a href="#常见关系型数据库" data-toggle="tooltip" title="常见关系型数据库">常见关系型数据库</a></li>
+					  <li class="active">MYSQL的数据库的概述</li>
+					</ol>
+			        <a data-toggle="collapse" data-toggle="collapse tooltip" data-parent="#accordion" href="#MYSQL的数据库的概述" title="MYSQL的数据库的概述">
+			          	<p class="list-group-item-text btn btn-primary">MYSQL的数据库的概述</p>
+			        </a>
+			      </h4>
+			    <!--</div>-->
+			    <div id="MYSQL的数据库的概述" class="panel-collapse collapse in">
+			      <div class="panel-body">
+						<div class="panel panel-info" id="什么是数据库">
+						  <div class="panel-heading">什么是数据库</div>
+						  <div class="panel-body">
+						        就是一个文件系统，这个文件必须通过标准的SQL访问
+						  </div>
+						  <div class="panel-body">关系型的数据库存放的都是实体之间的关系.</div>
+						</div>
+						<div class="panel panel-info" id="常见关系型数据库">
+						<div class="panel-heading">常见关系型数据库</div>
+						<div class="panel-body table-responsive">
+						<table class="table table-hover table-condensed table-bordered">
+							 <tr class="active">
+							 	<td>MySQL：免费的小型的数据库,现在被Oracle收购.</td>
+							 </tr>
+							 <tr class="success">
+							 	<td>Oracle：Oracle公司收费的大型的数据库.</td>
+							 </tr>
+							 <tr class="warning">
+							 	<td>SQLServer：微软公司收费中型的数据库.</td>
+							 </tr>
+							 <tr class="danger">
+							 	<td>DB2：IBM公司收费的大型的数据库.</td>
+							 </tr>
+							 <tr class="active">
+							 	<td>SyBase：SyBase公司收费的数据库.已经被淘汰.PowerDesigner数据建模的工具.</td>
+							 </tr>
+							 <tr class="warning">
+							 	<td>SQLite：小型的嵌入式的数据库.</td>
+							 </tr>
+						</table>
+						<p></p>
+						  <font class="text-info">
+						  	***** Java程序中经常使用的数据库:
+						  	MySQL&nbsp;&nbsp;Oracle<br />
+						  </font>
+				 		</div>
+				 	  </div>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <!--<div class="panel-heading">-->
+			      <h4 class="panel-title list-group-item active">
+			        <ol class="breadcrumb">
+			        	<span class="badge alert-warning">2</span>
+					  <li><a href="#概述" data-toggle="tooltip" title="概述">概述</a></li>
+					  <li><a href="#分类" data-toggle="tooltip" title="分类">分类</a></li>
+					  <li class="active">SQL的概述</li>
+					</ol>
+			        <a data-toggle="collapse" data-toggle="collapse tooltip" data-parent="#accordion" href="#SQL的概述" title="SQL的概述">
+			          	<p class="list-group-item-text btn btn-primary">SQL的概述</p>
+			        </a>
+			      </h4>
+			    <!--</div>-->
+			    <div id="SQL的概述" class="panel-collapse collapse">
+			      <div class="panel-body">
+						<div class="panel panel-info" id="概述">
+						  <div class="panel-heading">概述</div>
+						  <div class="panel-body">
+						        SQL:结构化的查询语言.
+						  </div>
+						  <div class="panel-body">数据库存储结构：数据库、表、实体对象的数据</div>
+						</div>
+						<div class="panel panel-info" id="分类">
+						<div class="panel-heading table-responsive">分类</div>
+						<table class="table table-hover table-condensed table-bordered">
+							<tr>
+								<td>DDL:数据定义语言</td>
+								<td>create,alter,drop，truncate...</td>
+							</tr>
+							<tr>
+								<td>DML:数据操纵语言</td>
+								<td>update,insert,delete</td>
+							</tr>
+							<tr>
+								<td>DCL:数据控制语言</td>
+								<td>grant,if..</td>
+							</tr>
+							<tr>
+								<td>DQL:数据查询语言</td>
+								<td>select</td>
+							</tr>
+						</table>
+						<p></p>
+						特点:
+						<font>非过程性语言: 一条语句就会有一个运行的结果</font>
+			      </div>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <!--<div class="panel-heading">-->
+			      <h4 class="panel-title list-group-item active">
+			      	<ol class="breadcrumb">
+			      		<span class="badge alert-info">3</span>
+					  <li><a href="#对数据库进行CRUD的操作" data-toggle="tooltip" title="对数据库进行CRUD的操作">对数据库进行CRUD的操作</a></li>
+					  <li><a href="#对表进行CRUD的操作" data-toggle="tooltip" title="对表进行CRUD的操作">对表进行CRUD的操作</a></li>
+					  <li class="active">SQL对数据库和表操作</li>
+					</ol>
+			        <a data-toggle="collapse" data-toggle="collapse tooltip" data-parent="#accordion" href="#SQL对数据库和表操作" title="SQL对数据库和表操作">
+			          	<p class="list-group-item-text btn btn-primary">SQL对数据库和表操作</p>
+			        </a>
+			      </h4>
+			    <!--</div>-->
+			    <div id="SQL对数据库和表操作" class="panel-collapse collapse">
+			      <div class="panel-body">
+			      	<div class="panel panel-info" id="对数据库进行CRUD的操作">
+						<div class="panel-heading table-responsive">对数据库进行CRUD的操作</div>
+						<table class="table table-hover table-condensed table-bordered">
+							<tr>
+								<td>创建数据库:</td>
+								<td>create database 数据库名称 [character set 字符集 collate 字符集校对];</td>
+							</tr>
+							<tr>
+								<td rowspan="3">查看数据库:</td>
+								<td>查看数据库服务器中所有的数据库:show databases;</td>
+							</tr>
+							<tr>
+								<td>查看某个数据库的定义信息.show create database 数据库名;</td>
+							</tr>
+							<tr>
+								<td>查看某个数据库的定义信息.show create database 数据库名;</td>
+							</tr>
+							<tr>
+								<td>删除数据库:</td>
+								<td>删除数据库:drop database 数据库名;</td>
+							</tr>
+							<tr>
+								<td>修改数据库:</td>
+								<td>修改数据库修改的是的数据库的字符集和校对规则.alter database 数据库名 character set 新字符集 collate 校对规则;</td>
+							</tr>
+							<tr>
+								<td>切换数据库:</td>
+								<td>use 数据库名称;</td>
+							</tr>
+						</table>
+					 </div>
+					 <div class="panel panel-info table-responsive" id="对表进行CRUD的操作">
+					 <table width="100%" class="table table-hover table-condensed table-bordered">
+						  <tr>
+						  	<div class="panel-heading">对表进行CRUD的操作</div>
+						  </tr>
+						  <tr>
+						    <td rowspan="17">创建表</td>
+						    <td colspan="2">语法:</td>
+						    <td colspan="4">create table 表名 (<br />
+						字段名 类型(长度) 约束,<br />
+						字段名 类型(长度) 约束,<br />
+						字段名 类型(长度) 约束<br />
+						);</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2" rowspan="13">数据类型:</td>
+						    <td colspan="4">Java类型 MySQL</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4"> byte/short/int/long tinyint/smallint/int/bigint</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">String char/varchar </td>
+						    <td rowspan="2">区别?  char是固定长度的字符串,varchar可变长度的字符串.</td>
+						    <td colspan="2">char(8) 和 varchar(8)</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">如果插入一个字符串hello 插入到char 那么 插入hello   .<br />
+						    插入到varchar中 插入hello</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">float float</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">double double</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">boolean bit</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2" rowspan="2">Date date/time/datetime/timestamp</td>
+						    <td colspan="2">datetime和timestamp都是既有日期又有时间的日期类型</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">区别? datetime需要使用外部传入的日期.如果没传这个值就是Null. timestamp会使用系统当前的时间作为这个值的默认值.</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">***** MYSQL中除了字符串类型需要设置长度其他的类型都有默认长度.</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2" rowspan="3">文件</td>
+						    <td>文本文件</td>
+						    <td>Text</td>
+						  </tr>
+						  <tr>
+						    <td>二级制文件</td>
+						    <td>BLOB</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">***** Oralce使用CLOB/BLOB 对应文本文件/二进制文件</td>
+						  </tr>
+						  
+						  <tr>
+						    <td rowspan="3">约束：</td>
+						    <td rowspan="3">单表约束：</td>
+						    <td colspan="4">主键约束：primary key (默认就是唯一非空的)</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">唯一约束：unique</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">非空约束：not null</td>
+						  </tr>
+						  
+						  <tr>
+						    <td rowspan="3">表的查看</td>
+						    <td colspan="5">查看数据库中有哪些表：</td>
+						    <td>show tables;</td>
+						  </tr>
+						  <tr>
+						    <td colspan="5">查看表结构:</td>
+						    <td>desc 表名;</td>
+						  </tr>
+						  <tr>
+						    <td colspan="5">查看表的创建语句</td>
+						    <td>show create table 表名;</td>
+						  </tr>
+						  <tr>
+						    <td>表的删除</td>
+						    <td colspan="6">drop table 表名;</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="6">表的修改</td>
+						    <td colspan="4">修改表添加列：</td>
+						    <td>alter table 表名 add 列名 类型(长度) 约束;</td>
+						    <td>alter table employee add image varchar(50);</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">修改表删除列：</td>
+						    <td>alter table 表名 drop 列名;</td>
+						    <td>alter table employee drop job;</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">修改表的列的类型长度及约束:</td>
+						    <td>alter table 表名 modify 列名 类型(长度) 约束;</td>
+						    <td>alter table employee modify image varchar(80) not null;</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">修改表的列名：</td>
+						    <td>alter table 表名 change 旧列名 新列名 类型(长度) 约束;</td>
+						    <td>alter table employee change image eimage varchar(60);</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">修改表名：</td>
+						    <td>rename table 旧表名 to 新表名;</td>
+						    <td>rename table employee to user;</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">修改表的字符集：</td>
+						    <td>alter table 表名character set 字符集;</td>
+						    <td>alter table user character set gbk;</td>
+						  </tr>
+					</table>
+					</div>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <!--<div class="panel-heading">-->
+			      <h4 class="panel-title list-group-item active">
+			      	<ol class="breadcrumb">
+			      		<span class="badge alert-success">4</span>
+					  <li><a href="#SQL对单表记录操作" data-toggle="tooltip" title="SQL对单表记录操作">SQL对单表记录操作</a></li>
+					  <li><a href="#SQL对多表记录操作" data-toggle="tooltip" title="SQL对多表记录操作">SQL对多表记录操作</a></li>
+					  <li class="active">SQL对单表和多表的操作</li>
+					</ol>
+			        <a data-toggle="collapse" data-toggle="collapse tooltip" data-parent="#accordion" href="#SQL对单表和多表的操作" title="SQL对数据库和表操作">
+			          	<p class="list-group-item-text btn btn-primary">SQL对单表和多表的操作</p>
+			        </a>
+			      </h4>
+			    <!--</div>-->
+			    <div id="SQL对单表和多表的操作" class="panel-collapse collapse">
+			      <div class="panel-body">
+						<div class="panel panel-info table-responsive" id="SQL对单表记录操作">
+						<table width="100%" class="table table-hover table-condensed table-bordered">
+						  <tr>
+						    <div class="panel-heading">SQL对单表记录操作</div>
+						  </tr>
+						  <tr>
+						    <td rowspan="4">插入记录：insert</td>
+						    <td>insert into 表名 (列名,列名,...) values (值1,值2,...);</td>
+						    <td colspan="4">---插入指定列的值</td>
+						    <td rowspan="4">注意事项：</td>
+						    <td>* 列名的个数与值的个数对应.</td>
+						  </tr>
+						  <tr>
+						    <td>insert into 表名 (列名,列名,...) values<br />
+						      (值1,值2,...),<br />
+						      (值1,值2,...),<br />
+						      (值1,值2,...);</td>
+						    <td colspan="4">-- 批量插入</td>
+						    <td>* 列的类型与值的类型对应.位置也要对应.</td>
+						  </tr>
+						  <tr>
+						    <td>insert into 表名 values (值1,值2,...);</td>
+						    <td colspan="4">---插入所有列的值</td>
+						    <td>* 列的类型如果是字符串或者日期,写值的时候使用单引号将值引起来.</td>
+						  </tr>
+						  <tr>
+						    <td>
+						    	插入中文报错:修改MYSQL的安装路径/my.ini文件 client 编码为gbk<br />
+						    	查看当前数据库的编码集：show variables like ‘%character%’；
+						    </td>
+						    <td colspan="4">重新启动mysql服务</td>
+						    <td>* 插入的值的最大长度不能超过列的最大长度.</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="3">修改记录：update</td>
+						    <td colspan="5" rowspan="3"> update 表 set 列名=值,列名=值 [ where 条件];</td>
+						    <td rowspan="3">注意事项：</td>
+						    <td>* 列名和值类型也要一致.</td>
+						  </tr>
+						  <tr>
+						    <td>* 值不能超过列的最大长度.</td>
+						  </tr>
+						  <tr>
+						    <td>* 值是字符串或日期,需要使用单引号.</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="5">删除记录：delete</td>
+						    <td colspan="5" rowspan="2">delete from 表 [ where 条件];</td>
+						    <td rowspan="2">注意事项：</td>
+						    <td>* 删除表中的一行记录,不能删除某列值</td>
+						  </tr>
+						  <tr>
+						    <td>* 如果没有条件删除表中的所有列.</td>
+						  </tr>
+						  
+						  <tr>
+						    <td rowspan="3">删除表中的所有记录 truncate 表名 和 delete from 表名区别?</td>
+						    <td colspan="6">truncate table 删除表的记录：将整个表删除掉,重新创建一个新的表. truncate 属于DDL.</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">delete from 删除表的记录：一条一条进行删除. delete属于DML。</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">事务管理 只能作用在DML语句上.如果在一个事务中使用delete删除所有记录，可以找回 rollback.</td>
+						  </tr>
+						  
+						  <tr>
+						    <td rowspan="19">查询记录：select</td>
+						    <td>基本查询</td>
+						    <td colspan="4">select [distinct] *|列名 from 表 [where 条件];</td>
+						    <td rowspan="19">&nbsp;</td>
+						    <td rowspan="19">&nbsp;</td>
+						  </tr>
+						  <tr>
+						    <td>别名查询</td>
+						    <td colspan="4">使用 as 起别名, as 可以省略.</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="6">条件查询</td>
+						    <td>=  &gt;  &lt;  &gt;=  &lt;=  &lt;&gt;</td>
+						    <td colspan="3">between 值1 and 值2</td>
+						  </tr>
+						  <tr>
+						    <td>like</td>
+						    <td colspan="3">可以使用占位符: _ 和 %  ：下划线匹配一个字符, %:可以匹配任意多个字符</td>
+						  </tr>
+						  <tr>
+						    <td> in</td>
+						    <td colspan="3">后跟着一组值 id in (1,2,3)</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">and or not</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">is not null ; is null</td>
+						  </tr>
+						  <tr>
+						    <td>limit</td>
+						    <td colspan="3">数据分页,是MySQL所特有的关键字 (orcale: rownum sqlserver : top)</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">排序：order by</td>
+						    <td colspan="4">asc 升序(默认)</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">desc 降序</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="5">聚合函数: 针对列 不能针对行</td>
+						    <td>sum()</td>
+						    <td>ifnull(english,0)</td>
+						    <td>如果english是null的话,就把它改为0</td>
+						    <td>任何值+null = null</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">count(*)</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">max()</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">min()</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">avg()</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">where 和 having的区别?</td>
+						    <td colspan="4">where 用于分组前 后不能跟聚合函数</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">having 用于分组后 可以跟聚合函数，用于二次条件筛选</td>
+						  </tr>
+						  <tr>
+						    <td>分组：group by</td>
+						    <td colspan="4">分组条件过滤：having</td>
+						  </tr>
+						  <tr>
+						    <td>SQL的查询语句的总结</td>
+						    <td colspan="4">顺序:	s...f...w...g...h...o...;</td>
+						  </tr>
+						</table>
+			      </div>
+			      <div class="panel panel-info table-responsive" id="SQL对多表记录操作">
+						<table width="100%" class="table table-hover table-condensed table-bordered">
+						  <tr>
+						    <div class="panel-heading">SQL对多表记录操作</div>
+						  </tr>
+						  <tr>
+						    <td rowspan="10">多表设计：</td>
+						    <td rowspan="6">正确分析表关系：</td>
+						    <td rowspan="2">一对多：在多的一方创建一个字段,这个字段作为外键指向一的一方的主键</td>
+						    <td colspan="6">客户和订单：一个客户可以产生多个订单,一个订单只能属于是某一个客户.</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">部门和员工：一个部门下可以有多个员工,一个员工只能属于某一个部门.</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">多对多: 创建一个中间表，中间表中至少需要两个字段分别作为外键指向多对多双方的各自的主键</td>
+						    <td colspan="6">学生和课程：一个学生可以选择多门课程,一门课程可以被多个学生选择.</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">订单和商品：一个订单中包含多个商品,一个商品也可以出现多个订单中.</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">一对一：（很少）</td>
+						    <td>唯一外键对应：</td>
+						    <td colspan="5">假设一对一的双方是一对多的关系.在多的一方创建外键指向一的一方的主键.需要在外键上添加一个unique约束</td>
+						  </tr>
+						  <tr>
+						    <td>主键对应：</td>
+						    <td colspan="5">将一对一的双方的主键建立映射</td>
+						  </tr>
+						  <tr>
+						    <td>***** 约束：</td>
+						    <td colspan="7">用来保证数据的完整性.* 多表约束：外键约束！！！</td>
+						  </tr>
+						  <tr>
+						    <td>建表时添加外键：</td>
+						    <td colspan="7">直接在建表语句中添加 【constraint 外键名】foreign key （外键字段） references 表名（主键）</td>
+						  </tr>
+						  <tr>
+						    <td>外键的添加：</td>
+						    <td colspan="7">alter table xx add 【constraint 外键名】foreign key （外键字段） references 表名（主键）</td>
+						  </tr>
+						  <tr>
+						    <td>删除外键：</td>
+						    <td colspan="7">alter table drop foreign key 外键名</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="8">多表查询：</td>
+						    <td colspan="3" rowspan="8">连接查询</td>
+						    <td colspan="5">笛卡尔积连接(交叉连接)select * from A , B ;</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">内连接 :inner join -- inner 可以省略</td>
+						    <td>显式内连接</td>
+						    <td>select * from A inner join B on 条件;</td>
+						    <td>SELECT * FROM customer c INNER JOIN orders o ON c.cid = o.cid;</td>
+						    <td rowspan="2">查询的结果都是两个表的交集</td>
+						  </tr>
+						  <tr>
+						    <td>隐式内连接</td>
+						    <td>select * from A,B where 条件;</td>
+						    <td>SELECT * FROM customer c ,orders o WHERE c.cid = o.cid;</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="4">外连接 :outer join -- outer 可以省略</td>
+						    <td rowspan="2">左外连接：</td>
+						    <td>left outer join  -- select * from A left outer join B on 条件;</td>
+						    <td>SELECT * FROM customer c LEFT OUTER JOIN orders o ON c.cid = o.cid;</td>
+						    <td rowspan="4">查询的是主表中的所有以及从表中符合条件的数据,如果从表中没有数据的话,用 null 填充</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">查询的是左边表的全部和两个表的交集</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">右外连接：</td>
+						    <td>right outer join -- select * from A right outer join B on 条件;</td>
+						    <td>SELECT * FROM customer c RIGHT OUTER JOIN orders o ON c.cid = o.cid;</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">查询的是右边表的全部和两个表的交集</td>
+						  </tr>
+						  <tr>
+						    <td colspan="5">子连接(子查询) :一个SQL需要依赖另一个SQL语句的查询结果</td>
+						  </tr>
+						</table>
+			      </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="tab-pane fade" id="JDBC">
+		  	<div class="panel panel-default">
+			    <!--<div class="panel-heading">-->
+			      <h4 class="panel-title list-group-item active">
+			      	<ol class="breadcrumb">
+			      		<span class="badge alert-success">1</span>
+					  <li><a href="#JDBC回顾" data-toggle="tooltip" title="JDBC回顾">JDBC回顾</a></li>
+					  <li><a href="#连接池" data-toggle="tooltip" title="连接池">连接池</a></li>
+					  <li class="active">JDBC的概述</li>
+					</ol>
+			        <a data-toggle="collapse" data-toggle="collapse tooltip" data-parent="#accordion" href="#JDBC的概述" title="JDBC的概述">
+			          	<p class="list-group-item-text btn btn-primary">JDBC的概述</p>
+			        </a>
+			      </h4>
+			    <!--</div>-->
+			    <div id="JDBC的概述" class="panel-collapse collapse">
+			      <div class="panel-body">
+						<div class="panel panel-info table-responsive" id="JDBC回顾">
+						<table width="100%" class="table table-hover table-condensed table-bordered">
+						  <tr>
+						    <div class="panel-heading">JDBC回顾</div>
+						  </tr>
+						  <tr>
+						    <td rowspan="3">JDBC的概述：Java数据库连接</td>
+						    <td colspan="6">Java Data Base Connectivity</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">是SUN公司统一提供的一套接口规范(JDBC).各个数据库生产商提供实现</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">驱动: 两个硬件设备之间通信的桥梁</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="9">主要对象</td>
+						    <td rowspan="3">DriverManager: 驱动管理对象</td>
+						    <td rowspan="2">1) 加载数据库驱动</td>
+						    <td colspan="4">DriverManager.registerDriver(new Driver()) 不会使用, 会加载两次数据库驱动</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">反射: Class.forName(&quot;com.mysql.jdbc.Driver&quot;)</td>
+						  </tr>
+						  <tr>
+						    <td>2) 创建数据库连接</td>
+						    <td colspan="4">DriverManager.getConnection(url,username,pwd)</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">Connection: 连接对象</td>
+						    <td rowspan="2">功能: 创建语句对象</td>
+						    <td colspan="4">Statement state = conn.createStatement()</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">preparedStatement = conn.preparedStatement(String sql);</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="3">Statement | PrepareStatement: 语句对象</td>
+						    <td rowspan="3">功能: 执行sql语句</td>
+						    <td rowspan="2">Statement: 不能防止sql注入</td>
+						    <td colspan="3"> 定义批处理sql: addBatch(String sql)</td>
+						  </tr>
+						  <tr>
+						    <td colspan="3"> 执行批处理: executeBatch()</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">PrepareStatement: 能防止sql注入 . 原理: 预编译, 给占位符(?)设置值 setXXX</td>
+						  </tr>
+						  
+						  <tr>
+						    <td>ResultSet: 结果集对象</td>
+						    <td colspan="5">功能: 用来封装从数据库中查询出来的数据 , K/V形式封装数据 , 遍历结果集next() , getXXX(&quot;表字段名称&quot;) getString getInt </td>
+						  </tr>
+						  <tr>
+						    <td rowspan="6">JDBC常用步骤：</td>
+						    <td colspan="6">1)注册数据库驱动</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">2)创建数据库连接</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">3)编写自定义sql</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">4)得到语句对象并执行sql</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">5)对结果进行操作</td>
+						  </tr>
+						  <tr>
+						    <td colspan="6">6)释放资源</td>
+						  </tr>
+						  <tr>
+						    <td colspan="7">.properties: K/V形式封装数据 </td>
+						  </tr>
+						  <tr>
+						    <td rowspan="19">JDBC完成CRUD的操作</td>
+						    <td rowspan="19">JDBC的API</td>
+						    <td rowspan="2">DriverManager</td>
+						    <td>注册驱动</td>
+						    <td colspan="3">&nbsp;</td>
+						  </tr>
+						  <tr>
+						    <td>获取connection对象</td>
+						    <td colspan="3">&nbsp;</td>
+						  </tr>
+						  
+						  
+						  <tr>
+						    <td rowspan="6">Connection</td>
+						    <td rowspan="3">创建执行SQL的对象</td>
+						    <td colspan="2">createStatement()</td>
+						    <td>创建一个 Statement 对象来将 SQL 语句发送到数据库</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">perpareStatement(String sql)</td>
+						    <td>创建一个 PreparedStatement 对象来将参数化的 SQL 语句发送到数据库</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">prepareCall(String sql)</td>
+						    <td>创建一个 CallableStatement 对象来调用数据库存储过程</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="3">进行事务管理</td>
+						    <td colspan="2">setAutoCommit(boolean autoCommit)</td>
+						    <td>将此连接的自动提交模式设置为给定状态</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">commit()</td>
+						    <td>使所有上一次提交/回滚后进行的更改成为持久更改，并释放此 Connection 对象当前持有的所有数据库锁</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">rollback()</td>
+						    <td>取消在当前事务中进行的所有更改，并释放此 Connection 对象当前持有的所有数据库锁</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="7">Statement</td>
+						    <td rowspan="3">执行SQL语句</td>
+						    <td colspan="2">executeQuery(String sql)</td>
+						    <td>执行给定的 SQL 语句，该语句返回单个 ResultSet 对象</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">executeUpdate(String sql)</td>
+						    <td>执行给定 SQL 语句，该语句可能为 INSERT、UPDATE 或 DELETE 语句，或者不返回任何内容的 SQL 语句（如 SQL DDL 语句）。</td>
+						  </tr>
+						  <tr>
+						    <td colspan="2">execute(String sql)</td>
+						    <td>执行给定的 SQL 语句，该语句可能返回多个结果</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="4">管理sql语句</td>
+						    <td rowspan="3">执行批处理</td>
+						    <td>addBatch(String sql)</td>
+						    <td>将给定的 SQL 命令添加到此 Statement 对象的当前命令列表中</td>
+						  </tr>
+						  <tr>
+						    <td>clearBatch()</td>
+						    <td>清空此 Statement 对象的当前 SQL 命令列表</td>
+						  </tr>
+						  <tr>
+						    <td>executeBatch()</td>
+						    <td>将一批命令提交给数据库来执行，如果全部命令执行成功，则返回更新计数组成的数组</td>
+						  </tr>
+						  <tr>
+						    <td colspan="3">设置sql语句中的参数：setObject（index，value）</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="4">ResultSet</td>
+						    <td rowspan="3">获得结果集中的数据</td>
+						    <td colspan="2" rowspan="3">获得结果集中的数据</td>
+						    <td>getXXX(int idx)</td>
+						  </tr>
+						  <tr>
+						    <td>getXXX(String name)</td>
+						  </tr>
+						  <tr>
+						    <td>...</td>
+						  </tr>
+						  <tr>
+						    <td>向下移动: next（）</td>
+						    <td colspan="3">向下移动: next（）</td>
+						  </tr>
+						  <tr>
+						    <td colspan="7">抽取JDBC的工具类</td>
+						  </tr>
+						</table>
+			      </div>
+			      <div class="panel panel-info table-responsive" id="连接池">
+						<table width="100%" class="table table-hover table-condensed table-bordered">
+						  <tr>
+						    <div class="panel-heading">连接池</div>
+						  </tr>
+						  <tr>
+						    <td colspan="4">连接池：一次创建多个连接，将连接放入到内存中,获得连接的时候从内存中获取,使用完归还回去</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="3">自定义连接池：（了解）</td>
+						    <td colspan="3">SUN公司提供了一个连接池的接口.(javax.sql.DataSource).</td>
+						  </tr>
+						  <tr>
+						    <td colspan="3">定义一个连接池:实现这个接口.</td>
+						  </tr>
+						  <tr>
+						    <td colspan="3">使用List集合存放多个连接的对象.</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="6"> 增强Connection的close方法：<br />
+						    (增强一个Java类中的某个方法三种方式)</td>
+						    <td>继承</td>
+						    <td colspan="2">能够控制这个类的构造的时候,才可以使用继承</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="4">装饰者</td>
+						    <td>包装对象和被包装的对象都要实现相同的接口</td>
+						    <td rowspan="3">缺点：如果接口的方法比较多,增强其中的某个方法.其他的功能的方法需要原样调用.</td>
+						  </tr>
+						  <tr>
+						    <td>包装的对象中需要获得到被包装对象的引用</td>
+						  </tr>
+						  <tr>
+						    <td>复写与被包装对象的同名方法，改变被包装对象的原本实现</td>
+						  </tr>
+						  <tr>
+						    <td>伪代码例:</td>
+						    <td>接口 C 	    包装类 AWrapper 	被包装类 B<br />
+						      1)	 B implements C <br />
+						      2)	 A(B) implement C</td>
+						  </tr>
+						  <tr>
+						    <td>动态代理</td>
+						    <td colspan="2">被增强的对象实现接口就可以</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="3">DBCP: (APACHE提供)</td>
+						    <td colspan="3">第一步：引入DBCP连接池的jar包.</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">第二步：编写DBCP代码：</td>
+						    <td>手动设置参数</td>
+						    <td rowspan="2">缺点: 在一个配置文件中只能存在一个数据库信息</td>
+						  </tr>
+						  <tr>
+						    <td>配置文件设置参数</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="4">C3P0:(个人第三方提供)</td>
+						    <td colspan="3">第一步：引入C3P0连接池的jar包.</td>
+						  </tr>
+						  
+						  <tr>
+						    <td rowspan="3">第二步：编写代码：</td>
+						    <td colspan="2">手动设置参数</td>
+						  </tr>
+						  <tr>
+						    <td rowspan="2">配置文件设置参数</td>
+						    <td>c3p0-config.xml (默认)</td>
+						  </tr>
+						  <tr>
+						    <td>优点: 在配置文件中可以存在多个数据库信息</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">Tomcat内置连接池</td>
+						  </tr>
+						  <tr>
+						    <td colspan="4">使用C3P0改写工具类</td>
+						  </tr>
+						</table>
+			      </div>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		  <div class="tab-pane fade" id="messages">
+		  	<ul>
+			<li>对数据库进行CRUD的操作</li>
+			<table>
+				<tr>
+					<td>创建数据库:</td>
+					<td>create database 数据库名称 [character set 字符集 collate 字符集校对];</td>
+				</tr>
+				<tr>
+					<td rowspan="3">查看数据库:</td>
+					<td>查看数据库服务器中所有的数据库:show databases;</td>
+				</tr>
+				<tr>
+					<td>查看某个数据库的定义信息.show create database 数据库名;</td>
+				</tr>
+				<tr>
+					<td>查看某个数据库的定义信息.show create database 数据库名;</td>
+				</tr>
+				<tr>
+					<td>删除数据库:</td>
+					<td>删除数据库:drop database 数据库名;</td>
+				</tr>
+				<tr>
+					<td>修改数据库:</td>
+					<td>修改数据库修改的是的数据库的字符集和校对规则.alter database 数据库名 character set 新字符集 collate 校对规则;</td>
+				</tr>
+				<tr>
+					<td>切换数据库:</td>
+					<td>use 数据库名称;</td>
+				</tr>
+			</table>
+		</ul>
+		  </div>
+		  
+		  
+		  <!--练习-->
+		  <div class="tab-pane fade" id="lianxi">
+		  	<div class="panel panel-default">
+			    <!--<div class="panel-heading">-->
+			      <h4 class="panel-title list-group-item active">
+			      	<ol class="breadcrumb">
+			      		<span class="badge alert-warning">1</span>
+					  <li><a href="#多对多关系的查询" data-toggle="tooltip" title="多对多关系的查询">多对多关系的查询</a></li>
+					  <li><a href="#多表练习" data-toggle="tooltip" title="多表练习">多表练习</a></li>
+					  <li class="active">MYSQL多表练习</li>
+					</ol>
+			        <a data-toggle="collapse" data-toggle="collapse tooltip" data-parent="#accordion" href="#DuoBiao" title="MYSQL多表练习">
+			          	<p class="list-group-item-text btn btn-primary">MYSQL多表练习</p>
+			        </a>
+			      </h4>
+			    <!--</div>-->
+			    <div id="DuoBiao" class="panel-collapse collapse">
+			      <div class="panel-body">
+			      	<div class="panel panel-info" id="多对多关系的查询">
+						<div class="panel-heading">多对多关系的查询</div>
+						<table class="table table-hover">
+						  <tr>
+						    <td>CREATE DATABASE test;</td>
+						  </tr>
+						  <tr>
+						    <td>USE test;</td>
+						  </tr>
+						  <tr>
+						    <td>CREATE TABLE users(<br />
+						uid INT PRIMARY KEY AUTO_INCREMENT,<br />
+						uname VARCHAR(20)<br />
+						);</td>
+						  </tr>
+						  <tr>
+						    <td>CREATE TABLE course(<br />
+						cid INT PRIMARY KEY AUTO_INCREMENT,<br />
+						cname VARCHAR(20)<br />
+						);</td>
+						  </tr>
+						  <tr>
+						    <td>CREATE TABLE user_course(<br />
+						uid INT,<br />
+						cid INT,<br />
+						CONSTRAINT fk_users FOREIGN KEY (uid) REFERENCES users(uid),<br />
+						CONSTRAINT fk_course FOREIGN KEY (cid) REFERENCES course(cid)<br />
+						);</td>
+						  </tr>
+						  <tr>
+						    <td>INSERT INTO users VALUES(NULL,'李四'),(NULL,'张三'),(NULL,'王五'),(NULL,'陈六');</td>
+						  </tr>
+						  <tr>
+						    <td>INSERT INTO course VALUES(NULL,'JAVA'),(NULL,'PHP'),(NULL,'UI'),(NULL,'ANDROID'),(NULL,'IOS');</td>
+						  </tr>
+						  <tr>
+						    <td>INSERT INTO user_course VALUES(1,2),(1,4),(2,1),(2,4),(2,5),(3,5),(4,1),(4,3);</td>
+						  </tr>
+						  <tr>
+						    <td>-- 查询所有学生选择的课程<br />
+						SELECT u.uname,c.cname FROM user_course uc LEFT JOIN users u ON uc.uid=u.uid LEFT JOIN course c ON uc.cid=c.cid;</td>
+						  </tr>
+						  <tr>
+						    <td>-- 统计每个学生所选课程的数量<br />
+						SELECT u.uname,COUNT(c.cname) FROM user_course uc LEFT JOIN users u ON uc.uid=u.uid LEFT JOIN course c ON uc.cid=c.cid GROUP BY u.uname;</td>
+						  </tr>
+						  <tr>
+						    <td>-- 查询王五选择的课程<br />
+						SELECT u.uname,c.cname FROM user_course uc LEFT JOIN users u ON uc.uid=u.uid LEFT JOIN course c ON uc.cid=c.cid HAVING u.uname='王五';</td>
+						  </tr>
+						  <tr>
+						    <td>-- 查询所有学生选择的课程(右外连接--了解)<br />
+						SELECT u.uname,c.cname FROM users u RIGHT JOIN (course c RIGHT JOIN user_course uc ON uc.cid = c.cid) ON u.uid = uc.uid ORDER BY u.uname;</td>
+						  </tr>
+						</table>
+					 </div>
+					 <div class="panel panel-info" id="多表练习">
+						<div class="panel-heading">多表练习</div>
+						<table class="table table-hover">
+						  <tr>
+						    <td>部门表</td>
+						  </tr>
+						  <tr>
+						    <td>CREATE TABLE DEPT(<br />
+						DEPTNO INT PRIMARY KEY,  -- 部门编号<br />
+						DNAME VARCHAR(14) ,  -- 部门名称<br />
+						LOC VARCHAR(13) ) ; -- 部门地址</td>
+						  </tr>
+						  <tr>
+						    <td>INSERT INTO DEPT VALUES (10,'ACCOUNTING','NEW YORK');<br />
+						      INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS');<br />
+						      INSERT INTO DEPT VALUES (30,'SALES','CHICAGO');<br />
+						    INSERT INTO DEPT VALUES (40,'OPERATIONS','BOSTON');</td>
+						  </tr>
+						  <tr>
+						    <td>员工表</td>
+						  </tr>
+						  <tr>
+						    <td>CREATE TABLE EMP<br />
+						      (<br />
+						EMPNO INT  PRIMARY KEY,  -- 员工编号<br />
+						ENAME VARCHAR(10),  -- 员工名称<br />
+						JOB VARCHAR(9), -- 工作<br />
+						MGR DOUBLE, -- 直属领导编号<br />
+						HIREDATE DATE,  -- 入职时间<br />
+						SAL DOUBLE, -- 工资<br />
+						COMM DOUBLE, -- 奖金<br />
+						DEPTNO INT, -- 部门号<br />
+						FOREIGN KEY(DEPTNO) REFERENCES DEPT(DEPTNO)<br />
+						);</td>
+						  </tr>
+						  <tr>
+						    <td>SELECT * FROM emp;</td>
+						  </tr>
+						  <tr>
+						    <td>INSERT INTO EMP VALUES<br />
+						      (7369,'SMITH','CLERK',7902,'1980-12-17',800,NULL,20);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7499,'ALLEN','SALESMAN',7698,'1981-02-20',1600,300,30);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7521,'WARD','SALESMAN',7698,'1981-02-22',1250,500,30);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7566,'JONES','MANAGER',7839,'1981-04-02',2975,NULL,20);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7654,'MARTIN','SALESMAN',7698,'1981-09-28',1250,1400,30);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7698,'BLAKE','MANAGER',7839,'1981-05-01',2850,NULL,30);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7782,'CLARK','MANAGER',7839,'1981-06-09',2450,NULL,10);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7788,'SCOTT','ANALYST',7566,'1987-07-13',3000,NULL,20);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7839,'KING','PRESIDENT',NULL,'1981-11-17',5000,NULL,10);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7844,'TURNER','SALESMAN',7698,'1981-09-08',1500,0,30);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7876,'ADAMS','CLERK',7788,'1987-07-13',1100,NULL,20);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7900,'JAMES','CLERK',7698,'1981-12-03',950,NULL,30);<br />
+						      INSERT INTO EMP VALUES<br />
+						      (7902,'FORD','ANALYST',7566,'1981-12-03',3000,NULL,20);<br />
+						      INSERT INTO EMP VALUES<br />
+						    (7934,'MILLER','CLERK',7782,'1982-01-23',1300,NULL,10); </td>
+						  </tr>
+						  <tr>
+						    <td>工资等级表</td>
+						  </tr>
+						  <tr>
+						    <td>CREATE TABLE SALGRADE<br />
+						      (<br />
+						GRADE INT,  -- 工资等级<br />
+						LOSAL DOUBLE, -- 最低工资<br />
+						HISAL DOUBLE ); -- 最高工资<br />
+						INSERT INTO SALGRADE VALUES (1,700,1200);<br />
+						INSERT INTO SALGRADE VALUES (2,1201,1400);<br />
+						INSERT INTO SALGRADE VALUES (3,1401,2000);<br />
+						INSERT INTO SALGRADE VALUES (4,2001,3000);<br />
+						INSERT INTO SALGRADE VALUES (5,3001,9999);</td>
+						  </tr>
+						  <tr>
+						    <td>1、返回拥有员工的部门名、部门号。(dept,emp) <br />
+						    select distinct dept.dname,dept.deptno from dept,emp where dept.deptno=emp.deptno;</td>
+						  </tr>
+						  <tr>
+						    <td>2、工资水平多于smith的员工信息。<br />
+						    select * from emp where sal&gt;(select sal from emp where ename='smith');</td>
+						  </tr>
+						  <tr>
+						    <td>3、返回员工和所属经理的姓名。（自连接）<br />
+						      select e1.ename as 员工,e2.ename as 经理 from emp as e1,emp as e2 where e1.mgr=e2.empno;<br />
+						    select e1.ename as 员工,e2.ename as 经理 from emp as e1 left join emp as e2 on e1.mgr=e2.empno;</td>
+						  </tr>
+						  <tr>
+						    <td>4、返回雇员的雇佣日期早于其领导雇佣日期的员工及其领导姓名。(在日期类型可以直接比较)<br />
+						      &quot;select e1.ename as 员工,e1.hiredate 员工入职时间,e2.ename as 经理 ,e2.hiredate 经理入职时间<br />
+						    from emp as e1,emp as e2 where e1.hiredate&lt;e2.hiredate and e1.mgr=e2.empno;&quot;</td>
+						  </tr>
+						  <tr>
+						    <td>5、返回员工姓名及其所在的部门名称。<br />
+						    select e.ename 员工姓名,dname 部门名称 from emp e,dept d where e.deptno=d.deptno;</td>
+						  </tr>
+						  <tr>
+						    <td>6、返回从事clerk工作的员工姓名和所在部门名称。<br />
+						    select e.ename 员工姓名,dname 部门名称 from emp e,dept d where e.job='clerk' and e.deptno=d.deptno;</td>
+						  </tr>
+						  <tr>
+						    <td>7、返回部门号,部门名称及其本部门的最低工资。<br />
+						    select d.deptno,d.dname,min(e.sal) from dept d,emp e where d.deptno=e.deptno group by deptno;</td>
+						  </tr>
+						  <tr>
+						    <td>8、返回销售部(sales)所有员工的姓名。<br />
+						    select ename from emp where deptno=(select deptno from dept where dname='sales');</td>
+						  </tr>
+						  <tr>
+						    <td>9、返回工资多于平均工资的员工。<br />
+						    select * from emp where sal&gt;(select avg(sal) from emp);</td>
+						  </tr>
+						  <tr>
+						    <td>10、返回与SCOTT从事相同工作的员工。<br />
+						    select * from emp where job=(select job from emp where ename='scott') and ename !='scott';</td>
+						  </tr>
+						  <tr>
+						    <td>11、返回与30部门员工工资水平相同的员工姓名与工资。<br />
+						    select ename,sal from emp where sal in (select sal from emp where deptno=30) and deptno!=30;</td>
+						  </tr>
+						  <tr>
+						    <td>12、返回工资高于30部门所有员工工资水平的员工信息。<br />
+						      select * from emp where sal &gt; (select max(sal) from emp where deptno=30);<br />
+						    select * from emp where sal &gt; all(select sal from emp where deptno=30);</td>
+						  </tr>
+						  <tr>
+						    <td>13、返回部门号、部门名、部门所在位置及其每个部门的员工总数。<br />
+						    select dept.deptno,dept.dname,dept.loc,count(emp.deptno) from dept,emp where dept.deptno=emp.deptno group by deptno;</td>
+						  </tr>
+						  <tr>
+						    <td>14、返回员工的姓名、所在部门名及其工资。<br />
+						    select e.ename,d.dname,e.sal from dept d,emp e where e.deptno=d.deptno;</td>
+						  </tr>
+						  <tr>
+						    <td>15、返回员工的详细信息。(包括部门名)<br />
+						    select e.*,d.dname from emp e,dept d where e.deptno=d.deptno;</td>
+						  </tr>
+						  <tr>
+						    <td>16、返回员工工作及其从事此工作的最低工资。<br />
+						    select job,min(sal) from emp group by job;</td>
+						  </tr>
+						  <tr>
+						    <td>17、返回不同部门经理的最低工资。<br />
+						    select deptno,min(sal) from emp where job='manager' group by deptno;</td>
+						  </tr>
+						  <tr>
+						    <td>18、计算出员工的年薪，并且以年薪排序。<br />
+						    select  (sal+ifnull(comm,0))*12 as 年薪 from emp order by 年薪;</td>
+						  </tr>
+						  <tr>
+						    <td>19、返回工资处于第四级别的员工的姓名。<br />
+						      select emp.* from emp,(select losal,hisal from salgrade where grade=4) gra where emp.sal between gra.losal and gra.hisal;<br />
+						    select emp.* from emp,salgrade where emp.sal&gt;=salgrade.losal and emp.sal&lt;=salgrade.hisal and salgrade.grade=4;</td>
+						  </tr>
+						  <tr>
+						    <td>20、返回工资为二等级的职员名字、部门所在地、和二等级的最低工资和最高工资<br />
+						      &quot;select e.ename,d.loc,s.losal,s.hisal from emp e,dept d,salgrade s where e.deptno=d.deptno and s.grade=2 <br />
+						    and e.sal between s.losal and s.hisal;&quot;</td>
+						  </tr>
+						  <tr>
+						    <td>21、返回二等级员工工资的最低工资和最高工资<br />
+						    select max(sal),min(sal) from emp,salgrade where emp.sal between salgrade.losal and salgrade.hisal and salgrade.grade=2;</td>
+						  </tr>
+						</table>
+					 </div>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		  
+		  <!--文件下载-->
+		  <div class="tab-pane fade" id="xiazai">
+			<div class="panel panel-default">
+			    <!--<div class="panel-heading">-->
+			      <h4 class="panel-title list-group-item active">
+			      	<ol class="breadcrumb">
+			      		<span class="badge alert-success">1</span>
+					  <li><a href="#API下载" data-toggle="tooltip" title="API下载">API下载</a></li>
+					  <li><a href="#图片下载" data-toggle="tooltip" title="图片下载">图片下载</a></li>
+					  <li class="active">文件下载&nbsp;<span class="glyphicon glyphicon-cloud"></span></li>
+					</ol>
+			        <a data-toggle="collapse" data-toggle="collapse tooltip" data-parent="#accordion" href="#文件下载" title="文件下载">
+			          	<p class="list-group-item-text btn btn-primary">文件下载</p>
+			        </a>
+			      </h4>
+			    <!--</div>-->
+			    <div id="文件下载" class="panel-collapse collapse">
+			      <div class="panel-body">
+						<div class="panel panel-info table-responsive" id="API下载">
+							<div class="panel-heading">API下载</div>
+						    <table width="100%" class="table table-hover table-condensed">
+						    	<tr>
+						    		<td>
+						    			<div>
+									  	    <a class="btn btn-danger" href="FileDownLoad/JDK_API_1_6_zh_CN.rar">JDK_API_1_6_zh_CN</a>
+									    </div> 
+						    		</td>
+						    		<td>
+						    			<div>
+									  	    <a class="btn btn-danger" href="FileDownLoad/JDK_API_1_6_zh_CN.rar">JDK_API_1_6_zh_CN</a>
+									    </div>
+						    		</td>
+						    		<td>
+						    			<div>
+									  	    <a class="btn btn-danger" href="FileDownLoad/JDK_API_1_6_zh_CN.rar">JDK_API_1_6_zh_CN</a>
+									    </div>
+						    		</td>
+						    		<td>
+						    			<div>
+									  	    <a class="btn btn-danger" href="FileDownLoad/JDK_API_1_6_zh_CN.rar">JDK_API_1_6_zh_CN</a>
+									    </div>
+						    		</td>
+						    		<td>
+						    			<div>
+									  	    <a class="btn btn-danger" href="FileDownLoad/JDK_API_1_6_zh_CN.rar">JDK_API_1_6_zh_CN</a>
+									    </div>
+						    		</td>
+						    		<td>
+						    			<div>
+									  	    <a class="btn btn-danger" href="FileDownLoad/JDK_API_1_6_zh_CN.rar">JDK_API_1_6_zh_CN</a>
+									    </div>
+						    		</td>
+						    		<td>
+						    			<div>
+									  	    <a class="btn btn-danger" href="FileDownLoad/JDK_API_1_6_zh_CN.rar">JDK_API_1_6_zh_CN</a>
+									    </div>
+						    		</td>
+						    	</tr>
+						    </table>
+					    </div>
+					    <div class="panel panel-info table-responsive" id="图片下载">
+					    	<div class="panel-heading">图片下载</div>
+					    	<table width="100%" class="table table-hover table-condensed">
+						    	<tr>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/1_ycdhonker.jpg" download="1_ycdhonker.jpg" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/1_ycdhonker.jpg" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/20110122_e4f1ef307c34921c681buQ1kuBksknBm.jpg" download="20110122_e4f1ef307c34921c681buQ1kuBksknBm.jpg" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/20110122_e4f1ef307c34921c681buQ1kuBksknBm.jpg" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    		<td>
+						    			<div>
+										    <a style="width: 80px;height: 80px;" href="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" download="03aca482f259f174ce8b91bce4e7467d_256_256.png" class="thumbnail">
+										      <img style="width: 100%;height: 100%;" src="FileDownLoad/03aca482f259f174ce8b91bce4e7467d_256_256.png" data-src="holder.js/100%x180" alt="图片">
+										    </a>
+										</div>
+						    		</td>
+						    	</tr>
+						    </table>
+					    </div>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		
+		  <!--目录-->
+		  <div class="tab-pane fade" id="settings">
+		  	<center>
+		  		<div class="container" style="padding: 30px;">
+					<section>
+						<ul class="longshadow">
+							<li>
+								<figure><span id="one">知</span></figure>
+							</li>
+							<li>
+								<figure><span id="two">识</span></figure>
+							</li>
+							<li>
+								<figure><span id="three">回</span></figure>
+							</li>
+							<li>
+								<figure><span id="four">顾</span></figure>
+							</li>
+							<li>
+								<figure><span id="five">笔</span></figure>
+							</li>
+							<li>
+								<figure><span id="six">记</span></figure>
+							</li>																			
+						</ul>
+					</section>
+				</div>
+		  		
+				<div class="progress progress-striped active">
+				  <div class="progress-bar progress-bar-success" style="width: 35%">
+				    <span class="sr-only">35% Complete (success)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-warning" style="width: 25%">
+				    <span class="sr-only">25% Complete (warning)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-danger" style="width: 15%">
+				    <span class="sr-only">15% Complete (danger)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-info" style="width: 10%">
+				    <span class="sr-only">10% Complete (info)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-striped" style="width: 5%">
+				    <span class="sr-only">5% Complete (striped)</span>
+				  </div>
+				</div>
+				
+				<!-- Button trigger modal -->
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-toggle="tooltip" title="JAVA" data-target="#myModal">
+				  JAVA
+				</button>
+				
+				<!--<embed type="text/html" src="HTMLfile/123.html" width="100%" height="100%" />-->
+				
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				        <h4 class="modal-title" id="myModalLabel">
+				        	<a href="#xiazai" data-toggle="tab" data-toggle="tooltip" title="点击头像" data-dismiss="modal" value="点击头像" placeholder="点击头像">
+				        		<img src="img/03aca482f259f174ce8b91bce4e7467d_256_256.png" style="width: 35px;height: 35px;" alt="..." class="img-circle" align="left">
+				        	</a>
+				        	目录<span class="badge alert-danger">27</span>
+				        </h4>
+				      </div>
+				      <div class="modal-body">
+				      	<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;1</span>
+						  <input type="text" class="form-control" placeholder="面向对象,API,集合static">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;2</span>
+						  <input type="text" class="form-control" placeholder="final&抽象类&继承">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;3</span>
+						  <input type="text" class="form-control" placeholder="接口&多态">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;4</span>
+						  <input type="text" class="form-control" placeholder="包&权限修饰符&内部类">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;5</span>
+						  <input type="text" class="form-control" placeholder="API">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;6</span>
+						  <input type="text" class="form-control" placeholder="集合">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;7</span>
+						  <input type="text" class="form-control" placeholder="set集合 map集合">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;8</span>
+						  <input type="text" class="form-control" placeholder="异常 递归">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">&nbsp;&nbsp;9</span>
+						  <input type="text" class="form-control" placeholder="File&IO">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">10</span>
+						  <input type="text" class="form-control" placeholder="打印流&转换流&对象流&Properties">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">11</span>
+						  <input type="text" class="form-control" placeholder="多线程">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">12</span>
+						  <input type="text" class="form-control" placeholder="网络编程">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">13</span>
+						  <input type="text" class="form-control" placeholder="反射机制">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">14</span>
+						  <input type="text" class="form-control" placeholder="XML">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-danger">15</span>
+						  <input type="text" class="form-control" placeholder="MySQL">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">16</span>
+						  <input type="text" class="form-control" placeholder="JDBC">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-danger">17</span>
+						  <input type="text" class="form-control" placeholder="DBUtils">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon">18</span>
+						  <input type="text" class="form-control" placeholder="DBCP连接池">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-danger">19</span>
+						  <input type="text" class="form-control btn btn-danger" placeholder="管家婆">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-info">20</span>
+						  <input type="text" class="form-control btn btn-info" placeholder="HTML">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-danger">21</span>
+						  <input type="text" class="form-control btn btn-danger" placeholder="HTML和CSS">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-info">22</span>
+						  <input type="text" class="form-control btn btn-info" placeholder="JavaScript">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-success">23</span>
+						  <input type="text" class="form-control btn btn-success" placeholder="JavaScript高级">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-info">24</span>
+						  <input type="text" class="form-control btn btn-info" placeholder="jQuery">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-primary">25</span>
+						  <input type="text" class="form-control btn btn-primary" placeholder="jQuery&BootStrap介绍">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-warning">26</span>
+						  <input type="text" href="#MYSQL" class="form-control btn btn-warning" data-toggle="tab" data-toggle="tooltip" title="BootStrap响应式开发与mysql回顾" class="close" data-dismiss="modal" value="BootStrap响应式开发与mysql回顾" placeholder="BootStrap响应式开发与mysql回顾">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-danger">27</span>
+						  <input type="text" href="#MYSQL" class="form-control btn btn-danger" data-toggle="tab" data-toggle="tooltip" title="mysql表操作回顾" class="close" data-dismiss="modal" value="mysql表操作回顾" placeholder="mysql表操作回顾">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon btn btn-success">28</span>
+						  <input type="text" href="#JDBC" class="form-control btn btn-success" data-toggle="tab" data-toggle="tooltip" title="JDBC回顾" class="close" data-dismiss="modal" value="JDBC回顾" placeholder="JDBC回顾">
+						</div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				      </div>
+				    </div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+		  	</center>
+		  </div>
+		</div>
+		
+		<!--火柴燃烧-->
+		<div style="width: 290px;height: 290px;">
+			<svg class="flameSVG" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+			<defs> 
+			<rect  class="flame" x="400" y="310" width="5" height="5" rx="0.5"  ry="0.5" fill="#FFDD02"/>
+			<circle class="spark" cx="400" cy="300" r="0.05" fill="#FFDD02"/>
+			
+			<filter id="shadow" x="-100%" y="-100%" width="250%" height="250%">
+			<feOffset in="SourceAlpha" dx="4" dy="4" result="offsetOut"></feOffset>        
+			<feGaussianBlur stdDeviation="3" in="offsetOut" result="drop" />
+			<feOffset dx="0" dy="0" result="offsetblur"></feOffset>
+			<feFlood id="glowAlpha" flood-color="#0F1217" flood-opacity="0.42"></feFlood>
+			<feComposite in2="offsetblur" operator="in"></feComposite>
+			<feMerge>
+			  <feMergeNode/>          
+			  <feMergeNode in="SourceGraphic"></feMergeNode>
+			</feMerge>
+			</filter>   
+			</defs>
+			<g class="whole">
+			<g class="flameContainer" />
+			<g class="sparksContainer" />
+			  <g class="logs" opacity="1">
+			 
+			<path d="M446.68,299.63l-91.46,29.22a3,3,0,0,1-3.68-2.12L349.2,318a3,3,0,0,1,2.12-3.68l91.46-29.22a3,3,0,0,1,3.68,2.12L448.8,296A3,3,0,0,1,446.68,299.63Z" fill="#612e25"/>
+				<path filter="url(#shadow)" d="M349.2,296l2.34-8.69a3,3,0,0,1,3.68-2.12l91.46,29.22A3,3,0,0,1,448.8,318l-2.34,8.69a3,3,0,0,1-3.68,2.12l-91.46-29.22A3,3,0,0,1,349.2,296Z" fill="#70392f"/>
+			 
+			  </g>
+			   </g>
+			
+			<rect class="hit" width="200" height="260" x="300" y="230" fill="transparent">
+			<title>Poke the fire!</title>
+			</rect>
+			
+			</svg>
+		</div>
+		
+		<script src='js/TweenMax.min.js'></script>
+		<script src='js/CustomEase.min.js'></script>
+		<script src="js/index.js"></script>
+		
+		<!--返回顶部&火箭样式-->
+		<div style="display: none;" id="rocket-to-top">
+			<div style="opacity:0;display: block;" class="level-2"></div>
+			<div class="level-3"></div>
+		</div>
+		
+		
+		<!--<div id="main"></div>
+			<footer class="hidden-xs">
+				<ul>
+					<li>
+						<p class="home">首页</p>
+						<a class="logo" href="#">公司名称 <i>&copy; 2013</i></a>
+					</li>
+					<li>
+						<p class="services">服务</p>
+	
+						<ul>
+							<li><a href="#">三维建模 </a></li>
+							<li><a href="#">Web开发</a></li>
+							<li><a href="#">移动开发</a></li>
+							<li><a href="#">网络与印刷设计 </a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="reachus">联系我们 </p>
+	
+						<ul>
+							<li><a href="#">邮箱</a></li>
+							<li><a href="#">Twitter</a></li>
+							<li><a href="#">Facebook</a></li>
+							<li>555-123456789</li>
+						</ul>
+					</li>
+					<li>
+						<p class="clients">客户</p>
+	
+						<ul>
+							<li><a href="#">登录区域</a></li>
+							<li><a href="#">支持中心</a></li>
+							<li><a href="#">常见问题解答</a></li>
+						</ul>
+					</li>
+				</ul>
+			</footer>
+		-->
+
+		
+		<script>
+		  $(function () {
+		    $('#myTab a:last').tab('show')
+		  })
+		  
+		  $(function(){
+		  	$('#example').tooltip(options);
+		  });
+		  
+		</script>
+		
+		
+
+	</body>
+</html>

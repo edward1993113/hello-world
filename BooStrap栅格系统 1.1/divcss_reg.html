@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="css/dc.css" />
+		<script type="text/javascript" src="js/dc.js" ></script>
+		
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+		
+		<script>
+			// 复选框全选和全不选的简化
+			function selectAll(){
+				var selectAll = document.getElementById("selectAll");
+				var aihao = document.getElementsByName("aihao");
+				for (var i = 0; i < aihao.length; i++) {
+					aihao[i].checked = selectAll.checked;
+				}
+			}
+			
+			// jQuery省市联动
+			$(function(){
+				// 定义数组
+				var cities = [
+					["杭州市","绍兴市","温州市","义乌市","嘉兴市"],
+					["南京市","苏州市","扬州市","无锡市"],
+					["武汉市","襄阳市","荆州市","宜昌市","恩施"],
+					["石家庄市","唐山市","保定市","邢台市","廊坊市"],
+					["长春市","吉林市","四平市","延边市"]
+				];
+				
+				var $city = $("#city");
+				
+				$("#jiguan").change(function(){
+					$city.get(0).options.length = 1;
+					
+					var val = this.value;
+					// 遍历
+					$.each(cities,function(i,n){
+						// 判断
+						if(i == val){
+							// cities[val] 写n也可以
+							$(cities[val]).each(function(j,m){
+								$city.append("<option>" + m + "</option>");
+							});
+						}
+					});
+				});
+			});
+			
+		</script>
+		
+	</head>
+	<body>
+		<div class="indexClass">
+			<div>
+				<!--
+                	LOGO的div
+                -->
+				<div class="logoClass">
+					<a href="divcss_index.html"><img src="img/logo2.png" /></a>
+				</div>
+				
+				<div class="logoClass">
+					<img src="img/header.jpg" />
+				</div>
+				
+				<div class="logoClass">
+					<a href="#">登录</a>
+					<a href="divcss_reg.html">注册</a>
+					<a href="#">购物车</a>
+					&nbsp;&nbsp;
+					<div style="float: right;padding-right: 20px;padding-top: 10px;">
+						<audio controls="controls" height="100" width="100" autoplay="autoplay" loop="loop" title="林俊杰 - 御龙三国志 - 御龙在天 的主题曲.mp3">
+						  	<source src="林俊杰 - 御龙三国志 - 御龙在天 的主题曲.mp3" type="audio/mp3" />
+						 	<source src="song.ogg" type="audio/ogg" />
+							<embed height="100" width="100" src="林俊杰 - 御龙三国志 - 御龙在天 的主题曲.mp3" />
+						</audio>
+					</div>
+				</div>
+				
+				<div class="clearClass"></div>
+			</div>
+			
+			<!--
+            	menu的div
+            -->
+			<div id="menuClass">
+				<ul>
+					<li><a href="divcss_index.html">首页</a>&nbsp;&nbsp;</li>
+					<li><a href="#">电脑办公</a>&nbsp;&nbsp;</li>
+					<li><a href="#">手机数码</a>&nbsp;&nbsp;</li>
+					<li><a href="#">烟酒糖茶</a>&nbsp;&nbsp;</li>
+					<li><a href="#">鞋靴箱包</a>&nbsp;&nbsp;</li>
+					<li><a href="#">汽车用品</a>&nbsp;&nbsp;</li>
+					<li><a href="login.html">后台页面</a></li>
+					<li class="dropdown">
+			          <a href="#" style="padding-bottom: 10px;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多 <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="#">Action</a></li>
+			            <li><a href="#">Another action</a></li>
+			            <li><a href="#">Something else here</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">Separated link</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">One more separated link</a></li>
+			          </ul>
+			        </li>
+			        <form class="navbar-form navbar-right" role="搜索" style="padding-right: 20px;">
+				        <div class="form-group">
+				          <input type="text" class="form-control" placeholder="搜索">
+				        </div>
+				        <button type="submit" class="btn btn-default">确定</button>
+				    </form>
+				</ul>
+			</div>
+			
+		<div class="content">
+			<div style="position: absolute;left:330px;top:200px;background-color: white;border:5px solid gray;width: 700px;height: 500px;">
+					<form action="divcss_index.html" method="post" onsubmit="return checkForm();">
+						<table width="100%" height="100%" border="0" align="center" cellspacing="10">
+							<tr>
+								<td colspan="2">
+									<font size="5" color="blue" style="padding: 60px;">会员注册</font>USER REGISTER
+								</td>
+							</tr>
+							<tr>
+								<td class="tdClass" width="20%">用户名:</td>
+								
+								<td>
+									<input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" onfocus="tips('username','用户名需要是字母或数字组成!')" onblur="checkUsername()" />
+									<span id="usernameSpan"></span>
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="tdClass">密码：</td>
+								
+								<td>
+									<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" onfocus="tips('password','密码至少六位!')" />
+									<span id="passwordSpan"></span>
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="tdClass">确认密码：</td>
+								
+								<td>
+									<input type="password" class="form-control" id="repassword" name="repassword" placeholder="请输入确认密码" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="tdClass">邮箱：</td>
+								
+								<td>
+									<input type="text" class="form-control" id="email" name="email" placeholder="请输入邮箱" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="tdClass">性别：</td>
+								
+								<td>
+									<input type="radio" name="sex" value="男" checked="checked"/>男
+									<input type="radio" name="sex" value="女" />女
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="tdClass">爱好：</td>
+								
+								<td>
+									<input type="checkbox" name="aihao" value="看小说" checked="checked" />看小说
+									<input type="checkbox" name="aihao" value="打网球" />打网球
+									<input type="checkbox" name="aihao" value="玩游戏" />玩游戏
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="tdClass">籍贯：</td>
+								
+								<td>
+									<select id="jiguan" name="jiguan">
+										<option>---请选择---</option>
+										<option value="0">浙江省</option>
+										<option value="1">江苏省</option>
+										<option value="2">湖北省</option>
+										<option value="3">河北省</option>
+										<option value="4">吉林省</option>	
+									</select>
+									<select id="city" name="city">
+										<option>---请选择---</option>
+									</select>
+								</td>
+							</tr>
+							
+							<!--<tr>
+								<td class="tdClass">头像：</td>
+								
+								<td>
+									<input type="file" name="touxiang" />
+								</td>
+							</tr>-->
+							
+							<tr>
+								<td class="tdClass">备注：</td>
+								
+								<td>
+									<textarea>备注......</textarea>
+								</td>
+							</tr>
+							
+							<tr>
+								<td colspan="2">
+							      <input type="submit"  width="100" value="注册" name="submit" border="0"
+								    style="background: url('./img/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+								    height:35px;width:100px;color:white;">
+								    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								  <input type="reset"  width="100" value="重置" name="submit" border="0"
+								    style="background: url('./img/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+								    height:35px;width:100px;color:white;">  
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+		</div>			
+			
+		<!--
+        	页脚的div
+        -->
+		<div style="width:100%;border:1px solid red;">
+			<img src="img/footer.jpg" width="100%" />
+		</div>
+		
+		<!--
+        	版权的div
+        -->
+        <div style="width:100%;border:1px solid red;">
+        	<center>
+        		    <a href="about.html" style="color: blue;">关于我们</a> 联系我们 招贤纳士 法律声明 <a href="a.html" style="color: blue;">友情链接</a> 支付方式 配送方式 服务声明 广告声明 <br/>
+
+					Copyright © 2005-2016 传智商城 版权所有 
+        	</center>
+        </div>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>详细信息</title>
+		
+		<script>
+			//表格隔行换色
+			function changeColor(){
+				var tab = document.getElementById("tab");
+				var len = tab.tBodies[0].rows.length;
+				for (var i = 0; i < len; i++) {
+					if (i % 2 == 0) {
+						tab.tBodies[0].rows[i].style.backgroundColor = "cornflowerblue";
+					}else{
+						tab.tBodies[0].rows[i].style.backgroundColor = "steelblue";
+					}
+				}
+			}
+		</script>
+		
+	</head>
+	<body onload="changeColor()">
+		<table id="tab" width="50%">
+			<tr>
+				<font size="5" color="#1859A5">详细信息&raquo;查看</font>
+			</tr>
+			
+			<hr color="#DF9A07" />
+			
+			<tr>
+				<th>分类的ID:</th>
+				<td>4</td>
+			</tr>
+			
+			<tr>
+				<th>分类的名称:</th>
+				<td>鞋靴箱包</td>
+			</tr>
+			
+			<tr>
+				<th>分类的描述:</th>
+				<td>鞋靴箱包</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2"><input type="button" value="返回" onclick="window.history.go(-1)"></td>
+			</tr>
+		</table>
+	</body>
+</html>

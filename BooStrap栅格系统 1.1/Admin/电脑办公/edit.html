@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript" src="../../js/jquery-1.11.3.min.js" ></script>
+		
+		<script>
+/*			window.onload=function(){
+				// 添加到右侧:
+				document.getElementById("addRight").onclick = function(){
+					// 获得左侧的下拉列表
+					var selectLeft = document.getElementById("selectLeft");
+					// 遍历左侧列表中的所有的option元素.
+					for(var i = selectLeft.options.length - 1;i>=0;i--){
+						// 判断该元素是否被选中
+						if(selectLeft.options[i].selected == true){
+							document.getElementById("selectRight").appendChild(selectLeft.options[i]);
+						}
+					}
+				}
+				
+				// 全部到右侧:
+				document.getElementById("addAll").onclick = function(){
+					// 获得左侧的下拉列表
+					var selectLeft = document.getElementById("selectLeft");
+					// 遍历左侧列表中的所有的option元素.
+					for(var i = selectLeft.options.length - 1;i>=0;i--){
+						document.getElementById("selectRight").appendChild(selectLeft.options[i]);
+					}
+				}
+			}*/
+			
+			$(function(){
+				// 添加左侧选中的元素到右侧
+				$("#addRight").click(function(){
+					// 获得左侧被选中的option元素:
+					$("#selectLeft option:selected").appendTo("#selectRight");
+				});
+				
+				// 添加所有到右侧
+				$("#addAll").click(function(){
+					// 获得左侧被选中的option元素:
+					$("#selectLeft option").appendTo("#selectRight");
+				});
+				
+				// 移除右侧被选中元素到左侧:
+				$("#removeLeft").click(function(){
+					$("#selectRight option:selected").appendTo("#selectLeft");
+				});
+				
+				// 移除右侧被选中元素到左侧:
+				$("#removeAll").click(function(){
+					$("#selectRight option").appendTo("#selectLeft");
+				});
+				
+				// 双击左侧的的某个元素，移动到右侧:
+				$("#selectLeft").dblclick(function(){
+					$("option:selected",this).appendTo("#selectRight");
+				});
+					
+				// 双击左侧的的某个元素，移动到右侧:
+				$("#selectRight").dblclick(function(){
+					$("option:selected",this).appendTo("#selectLeft");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form >
+		<table border="1" width="500" align="center" style="border-collapse: collapse;">
+			<tr>
+				<td>分类名称</td>
+				<td><input type="text" name="cname" value="手机数码"></td>
+			</tr>
+			<tr>
+				<td>分类描述</td>
+				<td><textarea name="cdesc" cols="20" rows="4">手机数码</textarea></td>
+			</tr>
+			<tr>
+				<td>分类商品</td>
+				<td>
+					<span style="float: left;">
+					已有的商品<br/>
+					<select id="selectLeft" multiple="multiple" size="3">
+						<option>IPhone</option>
+						<option>三星</option>
+						<option>小米</option>
+						<option>锤子</option>
+					</select>
+					<p id="addRight">&gt;&gt;</p>
+					<p id="addAll">&gt;&gt;&gt;</p>
+					</span>
+					
+					<span style="float:right">
+					未有的商品<br/>
+					<select id="selectRight" multiple="multiple" size="3">
+						<option>华为</option>
+						<option>HTC</option>
+					</select>
+					<p id="removeLeft">&lt;&lt;</p>
+					<p id="removeAll">&lt;&lt;&lt;</p>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="确定"></td>
+			</tr>
+		</table>
+		</form>
+	</body>
+</html>

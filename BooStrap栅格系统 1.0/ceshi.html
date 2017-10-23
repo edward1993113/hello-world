@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script>
+			window.onload = function(){
+//				alert(navigator.appName);
+
+				alert(screen.width);
+				alert(screen.height);
+			}
+			
+			// 复选框全选和全不选的简化
+			function selectAll(){
+				var selectAll = document.getElementById("selectAll");
+				var aihao = document.getElementsByName("aihao");
+				for (var i = 0; i < aihao.length; i++) {
+					aihao[i].checked = selectAll.checked;
+				}
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+			<input type="checkbox" id="selectAll" name="selectAll" onclick="selectAll()" />全选
+			<input type="checkbox" name="aihao" checked="checked" />看小说
+			<input type="checkbox" name="aihao" />打网球
+			<input type="checkbox" name="aihao" />玩游戏
+			</td>
+			</tr>
+		</table>	
+	</body>
+</html>

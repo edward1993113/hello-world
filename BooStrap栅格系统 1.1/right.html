@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/AdminLTE.css" />
+		
+		<script>
+
+//			// Date() 方法可返回当天的日期和时间。
+//			document.write(Date());
+//			
+//			// 月份
+//			var d=new Date()
+//	
+//			var month=new Array(12)
+//			month[0]="1月"
+//			month[1]="2月"
+//			month[2]="3月"
+//			month[3]="4月"
+//			month[4]="5月"
+//			month[5]="6月"
+//			month[6]="7月"
+//			month[7]="8月"
+//			month[8]="9月"
+//			month[9]="10月"
+//			month[10]="11月"
+//			month[11]="12月"
+//			
+//			document.write("本月是：" + month[d.getMonth()]);
+			
+//			// getDate() 方法可返回月份的某一天。
+//			var d=new Date()
+//			var day=d.getDate()
+//			var month=d.getMonth() + 1
+//			var year=d.getFullYear()
+//			
+//			document.write(year + "-" + month + "-" + day)
+			
+//			// 钟表
+//			function startTime(){
+//				var today=new Date()
+//				var h=today.getHours()
+//				var m=today.getMinutes()
+//				var s=today.getSeconds()
+//				// add a zero in front of numbers<10
+//				m=checkTime(m)
+//				s=checkTime(s)
+//				document.getElementById('txt').innerHTML=h+":"+m+":"+s
+//				t=setTimeout('startTime()',500)
+//			}
+//			
+//			function checkTime(i){
+//				if (i<10) 
+//				  {i="0" + i}
+//				  return i
+//			}
+
+//			// 时间
+//			function checkTime(i){
+//				if (i<10) 
+//				  {i="0" + i}
+//				  return i
+//			}
+//			
+//			var d = new Date()
+//			
+//			document.write(checkTime(d.getHours()))
+//			document.write(".")
+//			document.write(checkTime(d.getMinutes()))
+//			document.write(".")
+//			document.write(checkTime(d.getSeconds()))
+			
+//			function currLocation(){
+//				document.write(window.location.host);
+//			}
+			
+		</script>
+		
+	</head>
+	
+	<body onload="startTime()">
+		<div class="col-xs-12 wstmall-login-tips">
+			<font face="微软雅黑" style="font-size: 20px;">
+				欢迎使用
+				<font color="skyblue">黑</font>
+				<font color="#AC2925">马</font>
+				<font color="#EF0101">商</font>
+				<font color="chartreuse">城</font>
+				。 您本次登录的时间是 
+				
+				<font color="blueviolet">
+					<script>
+						// 日期
+						var d=new Date()
+						var day=d.getDate()
+						var month=d.getMonth() + 1
+						var year=d.getFullYear()
+						
+						document.write(year + "-" + month + "-" + day + " ")
+						
+						// 时间
+						function checkTime(i){
+							if (i<10) 
+							  {i="0" + i}
+							  return i
+						}
+						
+						var d = new Date()
+						
+						document.write(checkTime(d.getHours()))
+						document.write(".")
+						document.write(checkTime(d.getMinutes()))
+						document.write(".")
+						document.write(checkTime(d.getSeconds()))
+						
+						// 星期
+						var d=new Date()
+						var weekday=new Array(7)
+						weekday[0]="星期日"
+						weekday[1]="星期一"
+						weekday[2]="星期二"
+						weekday[3]="星期三"
+						weekday[4]="星期四"
+						weekday[5]="星期五"
+						weekday[6]="星期六"
+						
+						document.write(" " + weekday[d.getDay()]);
+						
+					</script>
+				
+					<!--<span id="txt"></span>-->
+					
+				</font>
+				
+				，IP 是 
+				<font color="blueviolet">
+					127.0.0.1
+				 	<br />
+				</font>
+			</font>
+		</div>	
+		<div class='row' style='padding-left:10px;margin-right:10px;'>
+         <div class="col-md-9">
+           <div class="box-header">
+             <h4 class="text-blue">一周动态</h4>
+             <table class="table table-hover table-striped table-bordered wst-form">
+                <tr>
+                   <td width="20%" align='right'>新增会员数：</td>
+                   <td width="30%">0</td>
+                   <td width="20%" align='right'>新增店铺数/申请数：</td>
+                   <td width="30%">0/0</td>
+                </tr>
+                <tr>
+                   <td align='right'>新增商品数：</td>
+                   <td>0</td>
+                   <td align='right'>新增订单数：</td>
+                   <td>0</td>
+                </tr>
+             </table>
+           </div>
+           <div class="box-header">
+             <h4 class="text-blue">统计信息</h4>
+             <table class="table table-hover table-striped table-bordered wst-form">
+                <tr>
+                   <td width="20%" align='right'>会员总数：</td>
+                   <td width="30%">31</td>
+                   <td width="20%" align='right'>店铺总数/申请总数：</td>
+                   <td width="30%">30/0</td>
+                </tr>
+                <tr>
+                   <td align='right'>商品总数：</td>
+                   <td>253</td>
+                   <td align='right'>订单总数：</td>
+                   <td>0</td>
+                </tr>
+                <tr>
+                   <td width="200" align='right'>订单总金额</td>
+                   <td width="300" colspan='3'>0</td>
+                </tr>
+             </table>
+           </div>
+		<div class="box-header">
+	         <h4 class="text-blue">系统信息</h4>
+	         <table class="table table-hover table-striped table-bordered wst-form">
+	            <tr>
+	               <td align='right'>服务器操作系统：</td>
+	               <td>WINNT</td>
+	               <td align='right'>WEB服务器：</td>
+	               <td >JAVA/1.7.0_72</td>
+	            </tr>
+	            <tr>
+	               <td align='right'>JAVA版本：</td>
+	               <td >1.7.0_72</td>
+	               <td align='right'>MYSQL版本：</td>
+	               <td >5.5.49</td>
+	            </tr>
+	         </table>
+	    </div>
+		
+	    <font style="padding-left: 10px;">返回到<a href="divcss_index.html" target='_top' style="font-size: 20px;">首页</a></font>
+	    
+	</body>
+</html>

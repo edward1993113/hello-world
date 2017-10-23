@@ -1,0 +1,170 @@
+.indexClass{
+	border: 1px solid red;
+	width: 100%;
+}
+
+.logoClass{
+	border: 1px solid red;
+	width: 32%;
+	height: 80px;
+	float: left;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.logoClass a:link{
+	color: #269ABC;
+	text-decoration:none;
+}
+
+.logoClass a:visited{
+	color: orange;
+	text-decoration:none;
+}
+
+.logoClass a:hover{
+	color: red;
+	text-decoration:underline;
+}
+
+.logoClass a:active{
+	color: greenyellow;
+	text-decoration:underline;
+}
+
+#menuClass{
+	border: 1px solid red;
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	padding-bottom: 0px;
+}
+
+#menuClass a{
+	font-size: 20px;
+	color: white;
+}
+
+#menuClass ul{
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	/*overflow:hidden;*/
+}
+
+#menuClass ul li{
+	display:inline;
+	float:left;
+}
+
+#menuClass a:link,a:visited{
+	display:block;
+	/*width:120px;*/
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:black;
+	text-align:center;
+	padding:11px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+
+#menuClass a:hover,a:active{
+	background-color:#cc0000;
+}
+
+#imgClass{
+	border: 1px solid red;
+	width: 100%;
+}
+
+.productClass{
+	border: 1px solid red;
+	width: 100%;
+}
+
+.contentClass{
+	border: 1px solid red;
+	width: 100%;
+}
+
+.contentClass font{
+	font-size: 30px;
+	color: black;
+}
+
+.spClass{
+	border:1px solid red;
+	width:16%;
+	float:left;
+	height:228px;
+}
+
+.content{
+	border:1px solid red;
+	height: 600px;
+	background: url(../img/regist_bg.jpg);
+	margin: 10px 0px;
+}
+
+.tdClass{
+	text-align: right;
+}
+
+.form-control {
+   width: 40%;
+   height: 25px;
+   padding: 6px 12px;
+   font-size: 14px;
+   color: #555;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+}
+
+.houtaiClass a{
+	font-size: 12px;
+	color: white;
+}
+
+.houtaiClass ul{
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	overflow:hidden;
+}
+
+.houtaiClass ul li{
+	display:inline;
+	float:left;
+}
+
+.houtaiClass a:link,a:visited{
+	width:30px;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:black;
+	text-align:center;
+	padding:5px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+
+.houtaiClass a:hover,a:active{
+	background-color:#cc0000;
+}
+
+.buttonClass {
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: red;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.clearClass{
+	clear: both;
+}
+
+

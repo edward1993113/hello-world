@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<!-- 引入BootStrap的CSS -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css" />
+		<!-- 引入JS-->
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="../js/jquery-1.11.3.min.js" ></script>
+		
+		<script>
+			// 钟表
+			function startTime(){
+				var today=new Date()
+				var h=today.getHours()
+				var m=today.getMinutes()
+				var s=today.getSeconds()
+				// add a zero in front of numbers<10
+				m=checkTime(m)
+				s=checkTime(s)
+				document.getElementById('txt').innerHTML=h+":"+m+":"+s
+				t=setTimeout('startTime()',500)
+			}
+			
+			function checkTime(i){
+				if (i<10) 
+				  {i="0" + i}
+				  return i
+			}
+			
+//			// 时间
+//			function checkTime(i){
+//				if (i<10) 
+//				  {i="0" + i}
+//				  return i
+//			}
+//			
+//			var d = new Date()
+//			
+//			document.write(checkTime(d.getHours()))
+//			document.write(".")
+//			document.write(checkTime(d.getMinutes()))
+//			document.write(".")
+//			document.write(checkTime(d.getSeconds()))
+			
+		</script>
+		
+	</head>
+	
+		<audio height="100" width="100" autoplay="autoplay" loop="loop" title="许嵩 - 断桥残雪.mp3">
+		  	<source src="许嵩 - 断桥残雪.mp3" type="audio/mp3" />
+		 	<source src="song.ogg" type="audio/ogg" />
+			<embed height="100" width="100" src="许嵩 - 断桥残雪.mp3" />
+		</audio>
+	
+	<body onload="startTime()">
+		<table width="100%">
+			<tr>
+				<td width="10%" style="padding-left: 20px;">
+					<img src="img/03aca482f259f174ce8b91bce4e7467d_256_256.png" width="60px" height="60px" style="padding: 20px 0px 0px 20px;" />
+					<font>
+						<B>Hello,Admin!!!</B>
+					</font>
+				</td>
+				<td>
+					<font color="blueviolet">
+						<script>
+							var d=new Date()
+							var day=d.getDate()
+							var month=d.getMonth() + 1
+							var year=d.getFullYear()
+							
+							document.write(year + "年" + month + "月" + day + "日")
+							
+						</script>
+						<br />
+						<span id="txt"></span>
+						
+						<script>
+							var d=new Date()
+							var weekday=new Array(7)
+							weekday[0]="星期日"
+							weekday[1]="星期一"
+							weekday[2]="星期二"
+							weekday[3]="星期三"
+							weekday[4]="星期四"
+							weekday[5]="星期五"
+							weekday[6]="星期六"
+							
+							document.write(weekday[d.getDay()]);
+						</script>
+						
+					</font>
+				</td>
+				<td width="35%">
+					<font style="font-size: 45px;">
+						<font color="#1859A5">欢</font>
+						<font color="#449D44">迎</font>
+						<font color="orange">来</font>
+						<font color="cornflowerblue">到</font>
+						<font color="skyblue">黑</font>
+						<font color="#AC2925">马</font>
+						<font color="#EF0101">商</font>
+						<font color="chartreuse">城</font>
+					</font>
+				</td>
+				<td>
+					<center>
+						<input type="button" class="btn btn-default" value="修改密码">
+						<input type="button" class="btn btn-default" value="退出商城">
+					</center>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

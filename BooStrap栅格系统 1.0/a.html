@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="css/dc.css" />
+		
+		<script>
+			function checkForm(){
+				//校验用户名
+				var username = document.getElementById("username").value;
+				if(username == ""){
+					alert("用户名不能为空!");
+					return false;
+				}
+				
+				//校验密码
+				var password = document.getElementById("password").value;
+				if(password == ""){
+					alert("密码不能为空!");
+					return false;
+				}
+				
+				//校验确认密码
+				var repassword = document.getElementById("repassword").value;
+				if(repassword != password){
+					alert("两次密码输入不一致!");
+					return false;
+				}
+				
+				//校验邮箱
+				var email = document.getElementById("email").value;
+				if(!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(email)){
+					alert("邮箱格式不正确！");
+					return false;
+				}
+			}
+			
+//			function tips(){
+//				document.getElementById("usernameSpan").innerHTML = "<font color='red'>用户名需要是字母或数字组成!</font>";
+//			}
+//			
+//			function checkUsername(){
+//				document.getElementById("usernameSpan").innerHTML = "<font color='green'>用户名可以使用!</font>";
+//			}
+
+			function tips(id,content){
+				document.getElementById(id + "Span").innerHTML = "<font color='red'>"+content+"</font>";
+			}
+			
+			//省市二级联动
+			// 定义数组：二维数组：
+			var arrs = new Array(5);
+			arrs[0] = new Array("杭州市","绍兴市","温州市","义乌市","嘉兴市");
+			arrs[1] = new Array("南京市","苏州市","扬州市","无锡市");
+			arrs[2] = new Array("武汉市","襄阳市","荆州市","宜昌市","恩施");
+			arrs[3] = new Array("石家庄市","唐山市","保定市","邢台市","廊坊市");
+			arrs[4] = new Array("长春市","吉林市","四平市","延边市");
+			
+			function changeCity(value){
+				var city = document.getElementById("city");
+				
+				for(var i=city.options.length-1;i>0;i--){
+					city.options[i] = null;
+				}
+				// city.options.length = 0;
+				
+				// alert(value);
+				for(var i= 0 ;i< arrs.length;i++){
+					if(value == i){
+						for(var j=0;j<arrs[i].length;j++){
+							// alert(arrs[i][j]);
+							var opEl = document.createElement("option");// <option></option>
+							var textNode = document.createTextNode(arrs[i][j]);
+							opEl.appendChild(textNode);
+							city.appendChild(opEl);
+						}
+					}
+				}
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		<div class="indexClass">
+			<div>
+				<!--
+                	LOGO的div
+                -->
+				<div class="logoClass">
+					<a href="divcss_index.html"><img src="img/logo2.png" /></a>
+				</div>
+				
+				<div class="logoClass">
+					<img src="img/header.jpg" />
+				</div>
+				
+				<div class="logoClass">
+					<a href="#">登录</a>
+					<a href="divcss_reg.html">注册</a>
+					<a href="#">购物车</a>
+				</div>
+				
+				<div class="clearClass"></div>
+			</div>
+			
+			<!--
+            	menu的div
+            -->
+			<div id="menuClass">
+				<ul>
+					<li><a href="divcss_index.html">首页</a>&nbsp;&nbsp;</li>
+					<li><a href="#">电脑办公</a>&nbsp;&nbsp;</li>
+					<li><a href="#">手机数码</a>&nbsp;&nbsp;</li>
+					<li><a href="#">烟酒糖茶</a>&nbsp;&nbsp;</li>
+					<li><a href="houtai.html">后台页面</a></li>
+				</ul>
+			</div>
+			
+		<div class="content">
+			<div style="position: absolute;left:330px;top:200px;background-color: white;border:5px solid gray;width: 700px;height: 500px;">
+					<form action="divcss_index.html" method="post" onsubmit="return checkForm();">
+						<table width="100%" height="100%" border="0" align="center" cellspacing="10">
+							<tr>
+								<td><img src="img/03aca482f259f174ce8b91bce4e7467d_256_256.png" width="80" height="80" alt="图片"/></td>
+								<td>
+									<ol type="1" start="6">
+										<li><a href="#" style="color: blue;">传智</a></li>
+										<li><a href="divcss_index.html" style="color: blue;">黑马</a></li>
+										<li>百度</li>
+										<li>网易</li>
+										<li>腾讯</li>
+									</ol>
+								</td>
+								<td>
+									<ul type="circle">
+										<li><a href="about.html" style="color: blue;">传智</a></li>
+										<li><a href="#" style="color: blue;">黑马</a></li>
+										<li>百度</li>
+										<li>网易</li>
+										<li>腾讯</li>
+									</ul>	
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+		</div>			
+			
+		<!--
+        	页脚的div
+        -->
+		<div style="width:100%;border:1px solid red;">
+			<img src="img/footer.jpg" width="100%" />
+		</div>
+		
+		<!--
+        	版权的div
+        -->
+        <div style="width:100%;border:1px solid red;">
+        	<center>
+        		     <a href="about.html" style="color: blue;">关于我们</a> 联系我们 招贤纳士 法律声明 <a href="a.html" style="color: blue;">友情链接</a> 支付方式 配送方式 服务声明 广告声明 <br/>
+
+					Copyright © 2005-2016 传智商城 版权所有 
+        	</center>
+        </div>
+        </div>
+	</body>
+</html>

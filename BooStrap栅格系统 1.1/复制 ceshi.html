@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			
+			function click1(){
+				var checkall=document.getElementById("checkall");
+				var check=document.getElementsByName("checks");
+				for(var i=0;i<check.length;i++)
+				{
+					check[i].checked=checkall.checked;
+				}
+			}
+			
+			function fun(){
+				//得到表格的行数组对象
+			var row=document.getElementById("aa").rows;
+			//得到表格有几行
+			var len=row.length;
+			for(var i=0;i<len;i++)
+			{
+				if(i%2==0)
+				{
+					row[i].style.backgroundColor="red";
+				}
+				else{
+					row[i].style.backgroundColor="green";
+				}
+			}
+			}
+		</script>
+	</head>
+	<body onload="fun(); " >
+		<table id="aa" width="90%" border="5" align="center" style="border: 5px solid red;">
+			
+			<tr>
+				<td ><input  type="checkbox" name="checkall" id="checkall"  onclick="click1()"/> </td>
+			</tr>
+			<tr>
+				<td ><input type="checkbox" name="checks" id="checks" value="check" /> </td>
+				<td>你好</td>
+				
+			</tr>
+			<tr>
+				<td ><input type="checkbox" name="checks" id="checks" value="check" /> </td>
+				<td>HTML</td>
+			</tr>
+			<tr>
+				<td ><input type="checkbox" name="checks" id="checks" value="check" /> </td>
+				<td>CSS</td>
+			</tr>
+			
+			<tr>
+				<td ><input type="checkbox" name="checks" id="checks" value="check" /> </td>
+				<td>Java</td>
+			</tr>
+			<tr>
+				<td ><input type="checkbox" name="checks" id="checks" value="check" /> </td>
+				<td>javascript</td>
+			</tr>
+			
+		</table>
+	</body>
+</html>

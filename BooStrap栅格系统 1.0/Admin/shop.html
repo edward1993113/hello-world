@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+		
+		<!-- 引入BootStrap的CSS -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css" />
+		<!-- 引入JS-->
+		<script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="../js/jquery-1.11.3.min.js" ></script>
+		
+		<script>
+			$(function(){
+				/*$("tr:odd").addClass("odd");
+				$("tr:even").addClass("even");*/
+				
+				$("tbody tr:odd").addClass("odd");
+				$("tbody tr:even").addClass("even");
+			});
+		</script>
+	</head>
+	<body>
+		<table id="tab1" border="1" width="100%" align="center">
+		  <thead>
+			<tr>
+				<th>分类的ID</th>
+				<th>分类的名称</th>
+				<th>分类的描述</th>
+				<th>操作</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+				<td>1</td>
+				<td>手机数码</td>
+				<td>手机数码</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>电脑办公</td>
+				<td>电脑办公</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>烟酒糖茶</td>
+				<td>烟酒糖茶</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>鞋靴箱包</td>
+				<td>鞋靴箱包</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>汽车用品</td>
+				<td>汽车用品</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

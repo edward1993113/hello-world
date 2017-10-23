@@ -1,0 +1,21 @@
+(function($){
+	BackTop=function(btnId){
+		varbtn=document.getElementById(btnId);
+		vard=document.documentElement;
+		window.onscroll=set;
+	btn.onclick=function(){
+		btn.style.display="none";
+		window.onscroll=null;
+	this.timer=setInterval(
+	function(){
+		d.scrollTop-=Math.ceil(d.scrollTop*0.1);
+		if(d.scrollTop==0)clearInterval(btn.timer,window.onscroll=set);
+	  },10);
+	};
+	functionset(){
+		btn.style.display=d.scrollTop?'block':"none"
+	  }
+	};
+		BackTop('gotop');
+
+})(jQuery);

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+		
+		<!-- 引入BootStrap的CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<!-- 引入JS-->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		
+		<script>
+			$(function(){
+				/*$("tr:odd").addClass("odd");
+				$("tr:even").addClass("even");*/
+				
+				// 隔行换色
+				$("tbody tr:odd").addClass("odd");
+				$("tbody tr:even").addClass("even");
+				
+				// JQ的事件切换
+				$(function(){
+					/*$("tbody tr").toggle(function(){
+						$(this).addClass("selected");
+					},function(){
+						$(this).removeClass("selected");
+					});*/
+					$("tbody tr").hover(function(){
+						$(this).addClass("selected");
+					},function(){
+						$(this).removeClass("selected");
+					});
+				});
+				
+				// 复选框全选和全不选
+				$("#selectAll").click(function(){
+					$(":checkbox[name='ids']").prop("checked",this.checked);
+					
+					// 全选变反选
+					$("input[type='checkbox']").change( function() {
+						if(this.checked){
+							$("font").html("反选");
+						}else{
+							$("font").html("全选");
+						}
+					});
+				});
+				
+				// 双击
+				$("tbody tr").dblclick(function(){
+					location.href="Admin/手机数码/view.html";
+				});
+				
+				// 单击
+				$("tbody tr").click(function(){
+					var check=$("input[type='checkbox']",this);
+					
+                    if(check[0].checked){
+                    	$("input[type='checkbox']",this).prop("checked", false);
+                    }else{
+                    	$("input[type='checkbox']",this).prop("checked", true);
+                    }
+					
+				});
+			});
+			
+		</script>
+	</head>
+	<body>
+		<table id="tab1" border="1" width="100%" align="center">
+		  <thead>
+			<tr>
+				<th><input type="checkbox" id="selectAll" name="selectAll" onclick="selectAll()"><font>全选</font></th>
+				<th>分类的ID</th>
+				<th>分类的名称</th>
+				<th>分类的描述</th>
+				<th>操作</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+				<td><input type="checkbox" name="ids"></td>
+				<td>1</td>
+				<td>手机数码</td>
+				<td>手机数码</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="ids"></td>
+				<td>2</td>
+				<td>电脑办公</td>
+				<td>电脑办公</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="ids"></td>
+				<td>3</td>
+				<td>烟酒糖茶</td>
+				<td>烟酒糖茶</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="ids"></td>
+				<td>4</td>
+				<td>鞋靴箱包</td>
+				<td>鞋靴箱包</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="ids"></td>
+				<td>5</td>
+				<td>汽车用品</td>
+				<td>汽车用品</td>
+				<td><a href="">修改</a>|<a href="">删除</a></td>
+			</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
